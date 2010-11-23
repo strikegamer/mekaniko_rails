@@ -4,8 +4,8 @@ Feature: Profile page
 	I want to have a profile page
 
 	Scenario: Showing activity feed
-		Given I am on "Danilo" profile page
-		And Danilo has shared items
+		Given Danilo has shared items
+		When I am on "Danilo" profile page
 		Then show all shared items by Danilo
 
 	Scenario: Showing achievements

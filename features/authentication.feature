@@ -6,9 +6,11 @@ Feature: Authentication
 	Scenario: Player login
 		Given I am not logged in
 		And I am on the login page
-		And I have a Username, Password
-		When I fill in "Username" with "Dennis"
-		And I fill in "Password" with "tetten"
+		And the following player records
+	      | username | password |
+	      | Danilo | dogsRcute |
+		When I fill in "username" with "Danilo"
+		And I fill in "password" with "dogsRcute"
 		And I press "Login"
 		Then I should see "Login successful."
 		And show me the dashboard page
@@ -16,9 +18,11 @@ Feature: Authentication
 	Scenario: Login fail
 		Given I am not logged in
 		And I am on the login page
-		And I have a Username, Password
-		When I fill in "Username" with "Dennis"
-		And I fill in "Password" with "cat"
+		And the following player records
+	      | username | password |
+	      | Danilo | dogsRcute |
+		When I fill in "username" with "Danilo"
+		And I fill in "password" with "catsRcute"
 		And I press "Login"
 		Then I should see "Login failed."
 
