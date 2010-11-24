@@ -1,7 +1,75 @@
-<% for player in @players %>
-	
-	<ol id="ranking">
-		<li><%=h player.name %></li>
-		<li><%=h player.score %></li>
-	</ol>
-<% end %>
+<div class="row">
+	<div class="column grid_6">
+		<h2>Sharing center</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="column grid_6">
+		<form name="form" style="margin: 12px; padding: 30px; font-size: 10pt">
+			<h4>What are you sharing?</h4><br/>
+			<input type="radio" name="radio_button" value="task" onclick="valor('task')" /> task
+			<input type="radio" name="radio_button" value="link" onclick="valor('link')" /> link
+			<input type="radio" name="radio_button" value="experience" onclick="valor('experience')" /> experience<br/>
+			<textarea rows="5" cols="55" style="width: 100%"></textarea><br/><br/>
+			<input type="text" name="link" value="www.rodeiodasgordas.cjb.net" style="display: none; font-size: 16px; width: 100%"/><br/>
+			<p><a class="awesome large gray button"> Share! </a></p>
+		</form>
+	</div>
+	<div class="column grid_5" style="margin-left: 40px; border: 1px solid gray;">
+		<legend><h3>Ranking</h3></legend>
+		
+		<table width="100%">
+			<col align="left" /><col align="left" /><col align="right" /><col align="right" />
+			<% @players.each_with_index do |player, index| %>
+				<tr class="<%= cycle("highlighted", "") %>">
+					<td><h3><%= index + 1 %>.</h3></td>
+					<td><%= link_to(image_tag(player.picture, :alt => player.name, :height => "45", :width => "45"), player_path(player)) %></td>
+					<td><%= link_to(player.name, player_path(player)) %></td>
+					<td><%= player.points %></td>
+				</tr>
+			<% end %>
+		</table>
+		<a href="/leaderboard" style="float: right">Goto the Leaderboard</a>
+	</div>
+</div>
+<div class="row">
+	<div class="column grid_12">
+		<h2>Activity</h2><br/>
+	</div>
+</div>
+<div class="row" id="comments">
+	<div class="column grid_11 activity highlighted" id="comment_1" style="margin-left: 40px">
+		<br/>
+		<a href="profile"><img src="/images/luis_pic.gif" alt="Luis" height="45" width="45" /></a>
+		<span><a href="profile">Luis</a> linked to <a href="link-share"><b>Article about Chrome OS</b></a></span><br/>
+		<div id="date_time">
+			21 Dec 10:00 <a href="#">comment</a>
+		</div>
+	</div>
+	<div class="column grid_11 activity" id="comment_2" style="margin-left: 40px">
+		<br/>
+		<a href="profile"><img src="/images/coolface.gif" alt="Eliezer" height="45" width="45" /></a>
+		<span><a href="profile">Eliezer</a> is <a href="task-share"><b>making a POS demo for VeriFone</b></a></span><br/>
+		<div id="date_time">
+			21 Dec 08:00 <a href="#">comment</a>
+		</div>
+	</div>
+	<div class="column grid_11 activity highlighted" id="comment_3" style="margin-left: 40px">
+		<br/>
+		<a href="profile"><img src="/images/awesome.jpg" alt="Dennis" height="45" width="45" /></a>
+		<span><a href="profile">Dennis</a> is <a href="xp-share"><b>read the book "A Clockwork Orange"</b></a></span><br/>
+		<div id="date_time">
+			20 Dec 22:00 <a href="#">comment</a>
+		</div>
+	</div>
+	<div class="column grid_11 activity" id="comment_4" style="margin-left: 40px">
+		<br/>
+		<a href="profile"><img src="/images/rick.jpg" alt="Arthur" height="45" width="45" href="profile" /></a>
+		<span><a href="profile">Arthur</a> earned a <a href="achievement"><b>Golden Phone</b></a></span><br/>
+		<div id="date_time">
+			20 Dec 21:00 <a href="#">comment</a>
+		</div>
+	</div>
+</div>
+<br/>
+</div>
