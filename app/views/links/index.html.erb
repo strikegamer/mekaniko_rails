@@ -2,14 +2,14 @@
 
 <table>
   <tr>
-    <th>User</th>
+    <th>Player</th>
     <th>Description</th>
     <th>Ref</th>
   </tr>
 
 <% @links.each do |link| %>
   <tr>
-    <td><%=h link.user_id %></td>
+    <td><%=h link.player_id %></td>
     <td><%=h link.description %></td>
     <td><%=h link.ref %></td>
     <td><%= link_to 'Show', link %></td>

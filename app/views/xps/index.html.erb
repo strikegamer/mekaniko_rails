@@ -1,0 +1,22 @@
+<h1>Listing xps</h1>
+
+<table>
+  <tr>
+    <th>Player</th>
+    <th>Description</th>
+  </tr>
+
+<% @xps.each do |xp| %>
+  <tr>
+    <td><%=h xp.player_id %></td>
+    <td><%=h xp.description %></td>
+    <td><%= link_to 'Show', xp %></td>
+    <td><%= link_to 'Edit', edit_xp_path(xp) %></td>
+    <td><%= link_to 'Destroy', xp, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New xp', new_xp_path %>

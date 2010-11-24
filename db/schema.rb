@@ -9,10 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101122012613) do
+ActiveRecord::Schema.define(:version => 20101124014438) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "player_id"
+    t.string   "action_type"
+    t.integer  "link_id"
+    t.integer  "xp_id"
+    t.integer  "task_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "links", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "player_id"
     t.string   "description"
     t.string   "ref"
     t.datetime "created_at"
@@ -23,6 +34,27 @@ ActiveRecord::Schema.define(:version => 20101122012613) do
     t.string   "name"
     t.string   "picture"
     t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "task_helpers", :force => true do |t|
+    t.integer  "player_id"
+    t.integer  "task_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.integer  "player_id"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "xps", :force => true do |t|
+    t.integer  "player_id"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

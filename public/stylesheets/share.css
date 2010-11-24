@@ -1,0 +1,138 @@
+.share .person a{
+  text-decoration: none;
+  font-weight: bolder;
+  color: #000;
+}
+
+.share .person a:hover{
+  color: #555;
+}
+
+.share .person{
+  font-size: 26px;
+  color: #777;
+}
+
+.share .act{
+  font-size: 20px;
+  margin: 25px 0;
+}
+
+.link{
+  color: blue;
+}
+
+.help-out p{
+  color: #777;
+}
+
+.level{
+  text-align: center;
+  margin-top: -25px;
+  font-size: 38px;
+  font-weight: bolder;
+  text-shadow: #000 2px 2px 5px;
+  font-family: arial;
+  color: #fff;
+}
+
+.sidebar{
+  float: right;
+}
+
+.sidebar a{
+  text-decoration: none;
+}
+.avatar{
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar h3{
+  background-color: #ddd;
+  color: #777;
+  text-shadow: #fff 0px 1px 0px;
+  padding: 5px 10px;
+}
+
+.sidebar p{
+  color: #777;
+  padding: 3px 10px;
+  font-size: 14px;
+  text-shadow: #fff 0px 1px 0px;
+}
+
+.sidebar p:hover{
+  background-color: #ddd;
+}
+
+.portrait img{
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.comment{
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.comment div{
+  float: left;
+  width: 90%;
+  margin: -2px 0 10px 0;
+  padding: 0;
+}
+
+.comment a{
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.comment a:hover{
+  color: #555;
+}
+
+.comment span{
+  color: #777;
+}
+
+.comment p{
+  margin-top: 9px;
+}
+
+.comment strong{
+  float: right;
+  font-size: 28px;
+  margin: 5px;
+  text-shadow: #fff 0px 1px 0px;
+  color: #ddd;
+}
+
+.comment img{
+  float: left;
+}
+
+.comment img{
+  margin: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.highlighted{
+  background-color: #eee;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+textarea{
+  width: 682px;
+  height: 100px;
+  font-size: 14px;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+textarea:focus{
+  background-color: #efffef;
+  text-shadow: #fff 0px 1px 0px;
+}
