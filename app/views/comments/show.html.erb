@@ -1,0 +1,33 @@
+<p>
+  <b>Player:</b>
+  <%=h @comment.player_id %>
+</p>
+
+<p>
+  <b>Action type:</b>
+  <%=h @comment.action_type %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%=h @comment.link_id %>
+</p>
+
+<p>
+  <b>Xp:</b>
+  <%=h @comment.xp_id %>
+</p>
+
+<p>
+  <b>Task:</b>
+  <%=h @comment.task_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @comment.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

@@ -1,0 +1,73 @@
+
+	<div class ="row">
+		<div  class="column grid_9">
+			<div id="achievementBox">
+				<div class ="row">
+					<div  class="column grid_11 achievementTitle">
+						<h2><%=h @achievement.title %></h2>
+					</div>
+				</div>
+				<div class ="row">
+					<div  class="column grid_3">
+						<div id="achievementPictureDiv">
+							<img src ="./images/phone.png" class="achievementPicture">
+						</div>
+					</div>
+					<div class="column grid_4 achievementDescription">
+						<div id "achievementDescription">
+							<h6><%=h @achievement.detail %></h6>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="column grid_8 profileBox">
+						<div class="achievementUnlockedBy">
+							Unlocked By
+						</div>
+						<div class="row">
+							<div class="column grid_2 divProfilePicture">
+								<div id="scoreNumber"><%=h @player.points %></div>
+								<img src ="./images/coolface-skidi.jpg" class="profilePicture">
+							</div>
+							<div class="column grid_3">
+								<div class="row">
+									<div class="column grid_3 profileName">
+										<h3><a href="/profile"><%=h @player.name %></a></h3>
+									</div>
+								</div>
+								<div class="row">	
+									<div class="column grid_3">
+										<%= @achievement.created_at.strftime("%d/%m/%Y %H:%M") %>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>	
+		</div>
+
+		<div class="column grid_3">
+			<div id="achievements">
+				<h3>Achievements</h3>
+				<a href="/achievement"><img src="images/phonesmall.png" class="badge" title="Golden Phone: 5 phone calls in one week"></a>
+				<a href="/achievement"><img src="images/palmsmall.png" class="badge" title="Work avoider: 3 shares in 30 minutes"></a>
+				<a href="/achievement"><img src="images/shieldsmall.png" class="badge" title="Bitterballen"></a>
+				<a href="/achievement"><img src="images/umbrellasmall.png" class="badge" title="Golden Phone: 5 phone calls in one week"></a>
+				<a href="/achievement"><img src="images/palmsmall.png" class="badge" title="Work avoider: 3 shares in 30 minutes"></a>
+				<a href="/achievement"><img src="images/phonesmall.png" class="badge" title="Golden Phone: 5 phone calls in one week"></a>
+				<a href="/achievement"><img src="images/umbrellasmall.png" class="badge" title="Golden Phone: 5 phone calls in one week"></a>
+				<a href="/achievement"><img src="images/shieldsmall.png" class="badge" title="Bitterballen"></a>
+				<a href="/achievement"><img src="images/palmsmall.png" class="badge" title="Work avoider: 3 shares in 30 minutes"></a>
+				<a href="/achievement"><img src="images/umbrellasmall.png" class="badge" title="Golden Phone: 5 phone calls in one week"></a>
+				<a href="/achievement"><img src="images/phonesmall.png" class="badge" title="Golden Phone: 5 phone calls in one week"></a>
+				<a href="/achievement"><img src="images/shieldsmall.png" class="badge" title="Bitterballen"></a>
+			</div>
+		</div>
+		<div class="row">
+		<div id="achievementNextStep" class="column grid_12">
+			<h3>NEXT:</h3><br/>
+			Diamond Phone (Make 20 phone calls)</div>	
+		</div>
+	</div>	
+	</div>	
