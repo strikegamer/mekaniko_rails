@@ -9,6 +9,8 @@ module NavigationHelpers
     case page_name
     when "Leaderboard"
       "/leaderboard"
+    when "the dashboard page"
+      "/dashboard"
 
     when /the home\s?page/
       '/'
