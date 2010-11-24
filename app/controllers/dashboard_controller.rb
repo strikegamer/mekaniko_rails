@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
   def index
-    @players = Player.all
+    @players = Player.find(:all, :order => "points DESC")
   end
 end
