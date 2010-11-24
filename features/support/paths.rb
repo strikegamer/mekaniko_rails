@@ -11,6 +11,8 @@ module NavigationHelpers
       "/leaderboard"
     when "Dashboard"
       "/dashboard"
+    when "the profile page"
+      "/profile"
 
     when /the home\s?page/
       '/'
