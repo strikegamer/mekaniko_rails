@@ -114,3 +114,8 @@ text-decoration:none;
 text-decoration:none;
 color: #fff;
 }
+
+/* Erro Messages */
+.errorExplanation h2, .errorExplanation p{
+  display: none;
+}

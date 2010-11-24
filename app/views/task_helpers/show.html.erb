@@ -1,0 +1,13 @@
+<p>
+  <b>Player:</b>
+  <%=h @task_helper.player_id %>
+</p>
+
+<p>
+  <b>Task:</b>
+  <%=h @task_helper.task_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_helper_path(@task_helper) %> |
+<%= link_to 'Back', task_helpers_path %>

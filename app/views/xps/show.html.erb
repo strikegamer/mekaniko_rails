@@ -1,40 +1,40 @@
 <% content_for :page_title do %>
-  <%= "Mekaniko - Link Share" %>
+  <%= "Mekaniko - Experience Share" %>
 <% end %>
 
 <% content_for :page_header do %>
-  <%= "Link Share" %>
+  <%= "Experience Share" %>
 <% end %>
 
 <div class="row">
   <br/>
   <div class="column grid_3 sidebar" style="background-color: #eee; -webkit-border-radius: 5px;">
-    <h3>Latest Links</h3>
-    <% Link.find(:all, :limit => 6, :order => 'created_at DESC').each do |item| %>
-      <%= link_to("<p><strong>#{item.player.name}</strong> #{item.description}</p>", link_path(item)) %>
+    <h3>Latest Experiences</h3>
+    <% Xp.find(:all, :limit => 6, :order => 'created_at DESC').each do |item| %>
+      <%= link_to("<p><strong>#{item.player.name}</strong> #{item.description}</p>", xp_path(item)) %>
     <% end %>
   </div>
 
   <div class="column grid_2 portrait">
-    <%= image_tag(@link.player.picture, :class => "avatar", :alt => @link.player.name, :height => "140", :width => "140") %>
+    <%= image_tag(@xp.player.picture, :class => "avatar", :alt => @xp.player.name, :height => "140", :width => "140") %>
     <p class="level">12</p>
   </div>
 
   <div class="column grid_7 share" style="height: 167px">
-    <p class="person"><%= link_to(@link.player.name, player_path(@link.player)) %> in <%= @link.created_at.strftime("%d/%m/%Y at %H:%M") %></p>
-    <p class="act">Shared the following link:</p>
-    <%= link_to(@link.description, @link.ref, :class => "link") %>
+    <p class="person"><%= link_to(@xp.player.name, player_path(@xp.player)) %> in <%= @xp.created_at.strftime("%d/%m/%Y at %H:%M") %></p>
+    <p class="act">Shared the following experience:</p>
+    <p><%= @xp.description %></p>
   </div>
 
-  <% if @link.comments.count > 0 %>
+  <% if @xp.comments.count > 0 %>
   <div class="column grid_9">
     <br />
-    <h3 style="border-bottom: 1px solid #eee;">Comments (<%= @link.comments.count %>)</h3>
+    <h3 style="border-bottom: 1px solid #eee;">Comments (<%= @xp.comments.count %>)</h3>
     <br />
   </div>
   <% end %>
 
-  <% @link.comments.each_with_index do |comment, index| %>
+  <% @xp.comments.each_with_index do |comment, index| %>
     <div class="column grid_9 comment <%= cycle("highlighted", "") %>" id="<%= "comment_#{index + 1}" %>">
       <strong><%= index + 1 %></strong>
       <%= image_tag(comment.player.picture, :alt => comment.player.name, :height => "45", :width => "45") %>
@@ -46,15 +46,15 @@
   <% end %>
 
   <div class="column grid_9">
-    <br />
-    <% if @link.comments.count > 0 %>
+    <br/>
+    <% if @xp.comments.count > 0 %>
     <h4 style="border-bottom: 1px solid #eee;">Leave a comment</h4>
     <% else %>
     <h4 style="border-bottom: 1px solid #eee;">Leave the first comment!</h4>
     <% end %>
     <br />
-    <% form_for [@link, Comment.new] do |f| %>
-      <input type="hidden" name="action_type" value="link" />
+    <% form_for [@xp, Comment.new] do |f| %>
+      <input type="hidden" name="action_type" value="xp" />
       <%= f.text_area :content %>
       <%= f.submit "Post comment", :class => "awesome large green button" %>
     <% end %>
