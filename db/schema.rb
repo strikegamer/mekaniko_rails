@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20101125024614) do
     t.integer  "points"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "task_helpers", :force => true do |t|

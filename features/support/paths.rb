@@ -13,7 +13,8 @@ module NavigationHelpers
       "/dashboard"
     when "the profile page"
       "/profile"
-
+    when "the start page"
+      "/start"
     when /the home\s?page/
       '/'
 

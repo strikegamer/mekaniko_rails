@@ -1,40 +1,22 @@
+@luisbebop
 Feature: Authentication
 	In order to play in mekaniko and conquer the mekaniko's world
 	As a player
-	I want to log in
+	I want to play the game
 
-  @working
   Scenario: Login via Twitter
-    When I go to the login page
-    And I follow "Login via Twitter"
+    When I go to the start page
+    And I follow "Click here to connect with Twitter"
     And Twitter authorizes me
-    Then I should see "Logged in as"
-
-	Scenario: Player login
-		Given I am not logged in
-		And I am on the login page
-		And the following player records
-	      | username | password |
-	      | Danilo | dogsRcute |
-		When I fill in "username" with "Danilo"
-		And I fill in "password" with "dogsRcute"
-		And I press "Login"
-		Then I should see "Login successful."
-		And show me the dashboard page
-
-	Scenario: Login fail
-		Given I am not logged in
-		And I am on the login page
-		And the following player records
-	      | username | password |
-	      | Danilo | dogsRcute |
-		When I fill in "username" with "Danilo"
-		And I fill in "password" with "catsRcute"
-		And I press "Login"
-		Then I should see "Login failed."
+    Then I should see "Home"
+    And I should see "My Profile"
+    And I should see "Leaderboard"
+    And I should see "logout"
+    And I should have one user in my database
 
 	Scenario: Player creation
-		Given I have no username, password
-		And I have Twitter account
-		When I press "Connect to Twitter"
-		Then I get Username, Password
+		Given I am logged in
+		When I go to the dashboard page
+		Then I should have the following player on my database
+		 |player-id | player-user-id| player-user-login | player-user-name | player-user-twitter_id |
+     |1         | 1             | luisbebop         | luisbebop        | 15160417               |
