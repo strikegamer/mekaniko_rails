@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :achievements
   map.resources :task_helpers
   map.resources :comments
+  map.resources :dashboard
 
   map.resources :links, :has_many => :comments
   map.resources :xps, :has_many => :comments
