@@ -1,12 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
-   map.resources :players
+  map.resources :players, :has_many => :achievements
+  map.resources :achievements
+  map.resources :task_helpers
+  map.resources :comments
 
-   map.resources :task_helpers
-   map.resources :comments
-
-   map.resources :links, :has_many => :comments
-   map.resources :xps, :has_many => :comments
-   map.resources :tasks, :has_many => [:comments, :task_helpers]
+  map.resources :links, :has_many => :comments
+  map.resources :xps, :has_many => :comments
+  map.resources :tasks, :has_many => [:comments, :task_helpers]
 
   # The priority is based upon order of creation: first created -> highest priority.
 

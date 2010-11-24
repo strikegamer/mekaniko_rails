@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101124014438) do
+ActiveRecord::Schema.define(:version => 20101124113129) do
+
+  create_table "achievements", :force => true do |t|
+    t.integer  "player_id"
+    t.string   "title"
+    t.string   "detail"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "player_id"
