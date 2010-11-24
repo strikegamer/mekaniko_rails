@@ -1,4 +1,4 @@
-class PlayersController < ApplicationController
+class PlayersController < ApplicationController 
   # GET /players
   # GET /players.xml
   def index

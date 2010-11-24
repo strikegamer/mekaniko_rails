@@ -5,7 +5,7 @@ Feature: Achievement
 
   Scenario: Show achievement page
     Given the following player records
-      | name          | image                                      | points|
+      | name          | picture                                      | points|
       | Jean Orlando  | http://planobe.com.br/images/photo-jean.png  | 10    |
     And the following achievement records
       | player_id | title               | detail                              |   image                                      |

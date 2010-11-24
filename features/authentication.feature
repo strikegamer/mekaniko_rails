@@ -1,7 +1,14 @@
 Feature: Authentication
-	In order to create and see shares
+	In order to play in mekaniko and conquer the mekaniko's world
 	As a player
 	I want to log in
+
+  @working
+  Scenario: Login via Twitter
+    When I go to the login page
+    And I follow "Login via Twitter"
+    And Twitter authorizes me
+    Then I should see "Logged in as"
 
 	Scenario: Player login
 		Given I am not logged in
