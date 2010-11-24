@@ -32,12 +32,12 @@ Feature: Authentication
 		When I press "Connect to Twitter"
 		Then I get Username, Password
 
-	Scenarion: Nav bar
+	Scenario: Nav bar
 		Given I have no Username, Password
 		When I am on the login page
 		Then I should not see the navigation bar
 		
-	Scenarion: redirect
+	Scenario: redirect
 		Given I am not logged in
 		When I visit dashboard
 		Then I should go to login page

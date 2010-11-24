@@ -1,0 +1,36 @@
+<h1>Editing comment</h1>
+
+<% form_for(@comment) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :player_id %><br />
+    <%= f.text_field :player_id %>
+  </p>
+  <p>
+    <%= f.label :action_type %><br />
+    <%= f.text_field :action_type %>
+  </p>
+  <p>
+    <%= f.label :link_id %><br />
+    <%= f.text_field :link_id %>
+  </p>
+  <p>
+    <%= f.label :xp_id %><br />
+    <%= f.text_field :xp_id %>
+  </p>
+  <p>
+    <%= f.label :task_id %><br />
+    <%= f.text_field :task_id %>
+  </p>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @comment %> |
+<%= link_to 'Back', comments_path %>

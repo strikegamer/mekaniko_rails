@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html dir="ltr" lang="en-US"> 
+  <head>
+    <meta charset="utf-8" />
+    <title><%= yield(:page_title) %></title>
+
+    <%= stylesheet_link_tag 'default' %>
+    <%= stylesheet_link_tag 'awesome' %>
+    <%= stylesheet_link_tag 'share' %>
+
+    <script type="text/javascript" src="http://use.typekit.com/flx7kua.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body>
+    <div class="row">
+		<div class="column grid_6">
+			<h1 class="header_title">mekaniko</h1>
+		</div>
+		<div class="column grid_6">
+			<div id="nav">
+				<ul>
+					<li><a href="/dashboard">Home</a></li>
+					<li>|</li>
+					<li><a href="/profile">My Profile</a></li>
+					<li>|</li>
+					<li><a href="/leaderboard">Leaderboard</a></li>
+					<li>|</li>
+					<li><a href="#">logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+    <div id="content">
+      <%= yield %>
+      <br/>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="column grid_12">
+          <p class="footer">&copy; 2010 - Mekaniko - All rights reserved</p> 
+      </div>
+    </div>
+  </body>
+</html>
