@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC 
+	"-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Mekaniko - Danilo's profile page</title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/profile.css" media="all">
+<link rel="stylesheet" type="text/css" href="/stylesheets/default.css" media="all">
+
+<script type="text/javascript" src="http://use.typekit.com/flx7kua.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+	<div class="row">
+		<div class="column grid_6">
+			<h1 class="header_title"><a href="/dashboard">mekaniko</a></h1>
+		</div>
+		<div class="column grid_6">
+			<ul id="nav">
+				<li><a href="/dashboard">Home</a></li>
+				<li>|</li>
+				<li><a href="/profile">My Profile</a></li>
+				<li>|</li>
+				<li><a href="/leaderboard">Leaderboard</a></li>
+				<li>|</li>
+				<li><a href="#">logout</a></li>
+			</ul>
+		</div>
+	</div>
+<div id="content">
+	<div class="row">
+		<div class="column grid_9 separation">
+			<div class="row">
+				<div class="column grid_2"><img id="player_img" src="images/danilo-level.png"></div>
+				<div class="column grid_6">
+					<h2 id="player_name"><% Player.name %></h2>
+					<div id="progressbar_outer" style=""><div id="progressbar_inner"><% Player.points +/+ current.level %></div></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column grid_2">
+					&nbsp;
+				</div>
+				<div class="column grid_5">
+					<hr>
+					<div id="value">
+						<table style="width:60%">
+							<tr>
+								<td></td>
+								<td class="shares"><h6>TASKS</h6><br /><span class="numbers" id="tasks"><% task.number %></span></td>
+								<td class="shares"><h6>LINKS</h6><br /><span class="numbers" id="links"><% link.number %></span></td>
+								<td class="shares"><h6>XPS<h6><br /><span class="numbers" id="xps"><% xps.number %></span></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column grid_8">
+					<div id="feed">
+							<h3><strong>Activity</strong></h3>
+								<% @share.each do |share| %>
+									<div class="feed_item" id="feed_item_1">
+									<%= player.image %>
+									<%= player.name %> linked to <% link_to share.title, link_share_path %><br />
+									<span class="feed_item_time">on <% share.date %></span><br />
+									<% link_to 'comment', comment_path %>
+									<% link_to 'help-out', help_out_path %>
+									</div>
+								<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="row">
+		<div class="column grid_3">
+			<div id="achievements">
+				<h3 id="achievementTitle"><strong>Achievements</strong></h3>
+				<% @achievement.each do |achievement| %>
+					<span class="badge">
+					<%= link_to, achievement.image, achievement_path %>
+					</span>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="row">
+     <div class="column grid_12">
+         <p class="footer">&copy; 2010 - Mekaniko - All rights reserved</p> 
+	</div>
+</div>
+</body>
+</html>
