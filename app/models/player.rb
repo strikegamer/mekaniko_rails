@@ -8,4 +8,8 @@ class Player < ActiveRecord::Base
    has_many :task_helpers
    has_many :comments
    has_many :unlocked_achievements
+   
+   def shares
+    self.tasks.count + self.links.count + self.xps.count
+   end
 end
