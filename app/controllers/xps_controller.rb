@@ -1,4 +1,6 @@
 class XpsController < ApplicationController
+  before_filter :login_required
+  
   # GET /xps
   # GET /xps.xml
   def index

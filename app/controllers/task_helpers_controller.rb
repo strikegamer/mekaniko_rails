@@ -1,7 +1,9 @@
 class TaskHelpersController < ApplicationController
+   before_filter :login_required
+   
    def create
       @task = Task.find(params[:task_id])
-      @task_helper = @task.task_helpers.new(:player_id => 1)
+      @task_helper = @task.task_helpers.new(:player_id => current_user.player.id)
 
       respond_to do |format|
          if @task_helper.save
