@@ -1,0 +1,51 @@
+.imageProfile{
+  width: 60px;
+  height: 60px;
+  float: right;
+}
+
+#TableLeaderboard{
+  width: 98%;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#tableHeader{
+  height: 40px;
+}
+
+#TableLeaderboard th{
+  text-align: center;
+  font-weight: bold;
+  color: #444258;
+  background-color: #aaa;
+  text-shadow : #ccc 1px 1px 2px;
+  font-size: 18px;
+}
+
+.tableData{
+  height: 80px;
+}
+
+.top-left{
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;
+}
+
+.top-right{
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-right-radius: 10px;
+}
+
+.nameAlign{
+  float: left;
+}
+
+.th-light{
+  background-color: #efefef;
+}
+
+.th-off{
+  background-color: inherit;
+}

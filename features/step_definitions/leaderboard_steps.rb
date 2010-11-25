@@ -5,11 +5,13 @@ Given /^the following users records$/ do |table|
 end
 
 Then /^show the users sorted$/ do |table|
-  table.hashes.each_with_index do |player, index|
-    page.div(:id,"players").tables.first.rows[index].each do |row|
-      row[0].should == player["name"]
-      row[1].should == player["picture"]
-      row[2].should == player["points"]
+  within("#TableLeaderboard") do |html_table|
+    table.hashes.each_with_index do |player, index|
+      assert_equal(html_table.field_by_xpath("//tr[#{index+2}]//td[1]//p").element.content, "#{index+1}.")
+      assert_equal(html_table.field_by_xpath("//tr[#{index+2}]//td[2]//a//@src").element.content, player["picture"])
+      assert html_table.field_by_xpath("//tr[#{index+2}]//td[3]").element.content.include?(player["name"])
+      assert_equal(html_table.field_by_xpath("//tr[#{index+2}]//td[4]//p").element.content, "share")
+      assert_equal(html_table.field_by_xpath("//tr[#{index+2}]//td[5]//p").element.content, player["points"])
     end
   end
 end

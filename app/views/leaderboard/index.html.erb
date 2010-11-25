@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="column grid_12">
+    <h2>Leaderboard</h2>
+  </div>
+</div>
+<br>
+<table id="TableLeaderboard" cellSpacing="0" cellpadding="0" width="500px">
+  <tr id="TableHeader">
+    <th class="top-left">
+      <p>Rank</p>
+    </th>
+    <th colspan="2">
+      <p>player</p>
+    </th>
+    <th>
+      <p>Shares</p>
+    </th>
+    <th class="top-right">
+      <p>points</p>
+    </th>
+  </tr>
+  <% @players.each_with_index do |player, index| %>
+    <tr class="tableData th-off">
+      <td>
+        <p><%= index+1 %>.</p>
+      </td>
+      <td>
+        <%= link_to(image_tag(player.picture), {:controllers => "/profiles", :action => :show, :id => player}, {:class => "imageprofile"}) %>
+      </td>
+      <td>
+        <%= link_to(player.name, {:controllers => "/profiles", :action => :show, :id => player}, {:class => "imageprofile"}) %>
+      </td>
+      <td>
+        <p>share</p>
+      </td>
+      <td>
+        <p><%= player.points %></p>
+      </td>
+    </tr>
+  <% end %>
+</table>
