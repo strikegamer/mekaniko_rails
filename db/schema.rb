@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101125024614) do
+ActiveRecord::Schema.define(:version => 20101125173848) do
 
   create_table "achievements", :force => true do |t|
     t.string   "title"
@@ -35,33 +35,25 @@ ActiveRecord::Schema.define(:version => 20101125024614) do
     t.datetime "updated_at"
   end
 
-  create_table "links", :force => true do |t|
-    t.integer  "player_id"
-    t.string   "description"
-    t.string   "ref"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "players", :force => true do |t|
-    t.string   "name"
-    t.string   "picture"
     t.integer  "points"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
-  create_table "task_helpers", :force => true do |t|
+  create_table "shares", :force => true do |t|
+    t.string   "type"
     t.integer  "player_id"
-    t.integer  "task_id"
+    t.string   "ref"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tasks", :force => true do |t|
+  create_table "task_helpers", :force => true do |t|
     t.integer  "player_id"
-    t.string   "description"
+    t.integer  "task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -99,13 +91,6 @@ ActiveRecord::Schema.define(:version => 20101125024614) do
     t.integer  "favourites_count"
     t.integer  "utc_offset"
     t.string   "time_zone"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "xps", :force => true do |t|
-    t.integer  "player_id"
-    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

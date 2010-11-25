@@ -25,8 +25,8 @@
 				<% unless index >= 3 %>
 					<tr class="<%= cycle("highlighted", "") %>">
 						<td><h3><%= index + 1 %>.</h3></td>
-						<td><%= link_to(image_tag(player.picture, :alt => player.name, :height => "45", :width => "45"), player_path(player)) %></td>
-						<td><%= link_to(player.name, player_path(player)) %></td>
+						<td><%= link_to(image_tag(player.user.profile_image_url, :alt => player.user.name, :height => "45", :width => "45"), player_path(player)) %></td>
+						<td><%= link_to(player.user.name, player_path(player)) %></td>
 						<td><%= player.points %></td>
 					</tr>
 				<% end %>
@@ -44,9 +44,9 @@
 	<% @players.each_with_index do |player, index| %>
 		<div class="column grid_11 activity <%= cycle("highlighted", "") %>" id="comment_<%= index + 1 %>" style="margin-left: 40px">
 			<br/>
-			<%= link_to(image_tag(player.picture, :alt => player.name, :height => "45", :width => "45"), player_path(player)) %>
+			<%= link_to(image_tag(player.user.profile_image_url, :alt => player.user.name, :height => "45", :width => "45"), player_path(player)) %>
 			<span>
-				<%= link_to(player.name, player_path(player)) %>
+				<%= link_to(player.user.name, player_path(player)) %>
 				<% @tasks.each_with_index do |task, index| %>
 					<% if task.player_id == (index + 1) %>					
 						<%= task.description %>

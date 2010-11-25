@@ -2,8 +2,8 @@ class DashboardController < ApplicationController
   before_filter :login_required
   
 	def index
-	  Player.create(:user_id => current_user.id, :name => "", :picture => "", :points => 0) if current_user.player.nil?
-    @players = Player.find(:all, :order => "points DESC")
+      Player.create(:user_id => current_user.id, :points => 0) if current_user.player.nil?
+      @players = Player.find(:all, :order => "points DESC")
 		@tasks = Task.find(:all)
 		@xps = Xp.find(:all)
 		@links = Link.find(:all)

@@ -1,5 +1,6 @@
 class Player < ActiveRecord::Base
    belongs_to :user
+   has_many :shares
    has_many :links
    has_many :achievements, :through => :unlocked_achievements
    has_many :xps
