@@ -7,7 +7,8 @@
 	<div class="column grid_6">
 		<form name="form" style="margin: 12px; padding: 30px; font-size: 10pt">
 			<h4>What are you sharing?</h4><br/>
-			<input type="radio" name="radio_button" value="task" onclick="valor('task')" /> task
+			 <%= radio_button_tag("radio_button", "task", false) %> task
+			<!--input type="radio" name="radio_button" value="task" onclick="valor('task')" /-->
 			<input type="radio" name="radio_button" value="link" onclick="valor('link')" /> link
 			<input type="radio" name="radio_button" value="experience" onclick="valor('experience')" /> experience<br/>
 			<textarea name="textarea"rows="5" cols="55" style="width: 100%"></textarea><br/><br/>
