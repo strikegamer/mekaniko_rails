@@ -10,29 +10,30 @@
 				<div class ="row">
 					<div  class="column grid_3">
 						<div id="achievementPictureDiv">
-							<img id="player_img" src="images/danilo-level.png" class="achievementPicture">
+							<%=h image_tag(@achievement.image, :alt => "Achievement pic") %>
 						</div>
 					</div>
 					<div class="column grid_4 achievementDescription">
 						<div id "achievementDescription">
-							<h6><%=h @achievement.detail %></h6>
+							<h6><%=h @achievement.description %></h6>
 						</div>
 					</div>
 				</div>
+				<div class="achievementUnlockedBy">
+					Unlocked By
+				</div>
+				<% @achievement.players.each do |player| %>
 				<div class="row">
 					<div class="column grid_8 profileBox">
-						<div class="achievementUnlockedBy">
-							Unlocked By
-						</div>
 						<div class="row">
 							<div class="column grid_2 divProfilePicture">
-								<div id="scoreNumber"><%=h @player.points %></div>
-								<img src ="./images/coolface-skidi.jpg" class="profilePicture">
+								<div id="scoreNumber"><%=h player.points %></div>
+								<%= image_tag(player.picture, :alt => player.name, :height => "100", :width => "130") %>
 							</div>
 							<div class="column grid_3">
 								<div class="row">
 									<div class="column grid_3 profileName">
-										<h3><a href="/profile"><%=h @player.name %></a></h3>
+										<h3><a href="/profile"><%=h player.name %></a></h3>
 									</div>
 								</div>
 								<div class="row">	
@@ -44,6 +45,7 @@
 						</div>
 					</div>	
 				</div>
+				<% end %>
 			</div>	
 		</div>
 

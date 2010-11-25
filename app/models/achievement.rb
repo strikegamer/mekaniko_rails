@@ -1,3 +1,4 @@
 class Achievement < ActiveRecord::Base
-  belongs_to :player
+  has_many :players, :through => :unlocked_achievements
+  has_many :unlocked_achievements
 end
