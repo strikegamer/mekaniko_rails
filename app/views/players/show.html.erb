@@ -8,55 +8,46 @@
 				<h2 id="player_name"><%= @player.name %></h2>
 				<div id="progressbar_outer"><div id="progressbar_inner"><%= @player.points %> /20</div></div>
 			</div>
-	<div class="row">
-		<div class="column grid_2">
-			&nbsp;
 		</div>
-		<div class="column grid_5">
-			<hr>
-			<div id="value">
-				<table style="width:60%">
-					<tr>
-						<td></td>
-						<td class="shares"><h6>TASKS</h6><br /><span class="numbers" id="tasks">10</span></td>
-						<td class="shares"><h6>LINKS</h6><br /><span class="numbers" id="links">5</span></td>
-						<td class="shares"><h6>XPS<h6><br /><span class="numbers" id="xps">2</span></td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="column grid_8">
-			<div id="feed">
-				<h3><strong>Activity</strong></h3>
-				<% @player.tasks.find(:all, :limit => 10, :order => 'created_at DESC').each do |task| %>
-					<div class="feed_item" id="feed_item_1">
-						<%=image(@task.player.picture , :alt =>"alttext", :class =>"classname here") %>
-						<%= @task.player.name %> linked to <%= link_to task.description, link_share_path %><br />
-						<span class="feed_item_time">on <%= @task.created_at.strftime("%d/%m/%Y at %H:%M") %></span><br />
-						<%= link_to 'comment', comment_path %>
-						<%= link_to 'help-out', help_out_path %>
-					</div>
-				<% end %>
-			</div>
-		</div>
-	</div>
-	</div>
 		<div class="row">
-			<div class="column grid_3">
-				<div id="achievements">
-					<h3 id="achievementTitle"><strong>Achievements</strong></h3>
-					<% @player.achievements.find(:all, :limit => 30, :order => 'created_at DESC').each do |achievement| %>
-						<span class="badge">
-						<%=image_tag(@achievement.picture, :alt =>"alttext", :class =>"classname here") %>
-						</span>
-						</div>
-					<% end %>
+			<div class="column grid_2">
+				&nbsp;
+			</div>
+			<div class="column grid_5">
+				<hr>
+				<div id="value">
+					<table style="width:60%">
+						<tr>
+							<td></td>
+							<td class="shares"><h6>TASKS</h6><br /><span class="numbers" id="tasks"><%= @player.tasks.count %></span></td>
+							<td class="shares"><h6>LINKS</h6><br /><span class="numbers" id="links"><%= @player.links.count %></span></td>
+							<td class="shares"><h6>XPS<h6><br /><span class="numbers" id="xps"><%= @player.xps.count %></span></td>
+						</tr>
+					</table>
 				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="column grid_8">
+				<div id="feed">
+					<h3><strong>Activity</strong></h3>
+					<br/>
+					<%= @player.tasks.last.description %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="column grid_3">
+			<div id="achievements">
+				<h3 id="achievementTitle"><strong>Achievements</strong></h3>
+				<% @player.achievements.find(:all, :limit => 30, :order => 'created_at DESC').each do |achievement| %>
+					<span class="badge">
+					<%=image_tag(@achievement.picture, :alt =>"alttext", :class =>"classname here") %>
+					</span>
+				<% end %>
+			</div>	
 		</div>
 	</div>
 </div>
-<br />
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
