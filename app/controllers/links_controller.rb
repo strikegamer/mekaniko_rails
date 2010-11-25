@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+  before_filter :login_required
+  
   # GET /links
   # GET /links.xml
   def index

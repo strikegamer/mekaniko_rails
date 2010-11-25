@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+   before_filter :login_required
+   
    def create
       @action = case params[:action_type]
          when "link" then Link.find(params[:link_id])

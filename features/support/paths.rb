@@ -9,7 +9,7 @@ module NavigationHelpers
     case page_name
     when "Leaderboard"
       "/leaderboard"
-    when "Dashboard"
+    when "the dashboard page"
       "/dashboard"
     when "the profile page"
       "/profile"
