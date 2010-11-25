@@ -5,24 +5,35 @@ Feature: Profile page
 
 	Scenario: Show player name
 		Given the following player records
-	      	| name | picture |
-	      	| Danilo | danilo.png |
+	      	| name | picture | points | created_at | updated_at |
+	      	| Danilo | danilo.png | 15 | 2010-11-24 17:12:54 | 2010-11-24 17:12:54 |
 		When I visit the "Danilo" profile page
 		Then I should see "Danilo"
 	
 	Scenario: Show points
 		Given the following player records
-	      	| name | picture | points |
-	      	| Danilo | danilo.png | 15 |
+	      	| name | picture | points | created_at | updated_at |
+	      	| Danilo | danilo.png | 15 | 2010-11-24 17:12:54 | 2010-11-24 17:12:54 |
 		When I visit the "Danilo" profile page
 		Then I should see points "15"
 
 	Scenario: Showing activity feed
 		Given the following player records
-	      	| name |
-	      	| Danilo |
+	      	| name | picture | points | created_at | updated_at |
+	      	| Danilo | danilo.png | 15 | 2010-11-24 17:12:54 | 2010-11-24 17:12:54 |
 		And the following task records
-		| player_id | description | created_at |
-	    	| 1 | making Vx 680 demo animation | 2010/09/11 |
+		| player_id | description | created_at | updated_at |
+	    	| 2 | making Vx680 demo | 2010-11-25 12:20:05 | 2010-11-25 12:20:05 |
 		When I visit the "Danilo" profile page
-		Then I should see "making Vx demo animation"
+		Then I should see "making Vx680 demo"
+
+	Scenario: Show share counters
+		Given the following player records
+	      	| name | picture | points | created_at | updated_at |
+	      	| Danilo | danilo.png | 15 | 2010-11-24 17:12:54 | 2010-11-24 17:12:54 |
+		And the following task records
+		| player_id | description |
+	    	| 2 | making Vx680 demo |
+		| 2 | making Vx520 demo |
+		When I visit the "Danilo" profile page
+		Then I should see "2"
