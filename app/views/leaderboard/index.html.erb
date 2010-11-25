@@ -10,28 +10,28 @@
       <p>Rank</p>
     </th>
     <th colspan="2">
-      <p>player</p>
+      <p>Player</p>
     </th>
     <th>
       <p>Shares</p>
     </th>
     <th class="top-right">
-      <p>points</p>
+      <p>Points</p>
     </th>
   </tr>
   <% @players.each_with_index do |player, index| %>
-    <tr class="tableData th-off">
+    <tr class="tableData th-<%= cycle("off","light") %>">
       <td>
         <p><%= index+1 %>.</p>
       </td>
       <td>
-        <%= link_to(image_tag(player.picture), {:controllers => "/profiles", :action => :show, :id => player}, {:class => "imageprofile"}) %>
+        <%= link_to(image_tag(player.picture, :height => "60", :width => "60"), player_path(player), {:class => "imageProfile"}) %>
       </td>
       <td>
-        <%= link_to(player.name, {:controllers => "/profiles", :action => :show, :id => player}, {:class => "imageprofile"}) %>
+        <%= link_to(player.name, player_path(player), {:class => "nameAlign"}) %>
       </td>
       <td>
-        <p>share</p>
+        <p><%= count_shares(player) %></p>
       </td>
       <td>
         <p><%= player.points %></p>
