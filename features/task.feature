@@ -3,20 +3,19 @@ Feature: Task
   As a player
   I want share tasks
 
+  @share
   Scenario: Show task
-    Given the following player records
-      | name          | picture                                      | points|
-      | Bruno Freitas | http://planobe.com.br/images/photo-bruno.png | 10    |
+    Given I am logged in
     And the following task records
       | player_id | description |
       | 1         | Lorem Ipsum |
     When I visit the task "Lorem Ipsum"
     Then I should see "Lorem Ipsum"
+    And I should see "luisbebop"
 
+  @share
   Scenario: Comment
-    Given the following player records
-      | name          | picture                                      | points|
-      | Bruno Freitas | http://planobe.com.br/images/photo-bruno.png | 10    |
+    Given I am logged in
     And the following task records
       | player_id | description |
       | 1         | Lorem Ipsum |
@@ -25,5 +24,5 @@ Feature: Task
     And I fill in "comment_content" with "Here we go!"
     And I press "Post comment"
     Then I should see "Comments (1)"
-    And I should see "Bruno Freitas"
+    And I should see "luisbebop"
     And I should see "Here we go!"
