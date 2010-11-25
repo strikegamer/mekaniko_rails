@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
          else Xp.find(params[:xp_id])
       end
 
-      @comment = @action.comments.create!(params[:comment].merge(:player_id => 1))
+      @comment = @action.comments.create!(params[:comment].merge(:player_id => current_user.player.id))
 
       redirect_to @action
    end
