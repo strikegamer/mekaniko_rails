@@ -1,4 +1,4 @@
-class Xp < ActiveRecord::Base
+class Xp < Share
    belongs_to :player
    has_many   :comments
 end

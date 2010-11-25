@@ -1,0 +1,23 @@
+<p>
+  <b>Type:</b>
+  <%=h @share.type %>
+</p>
+
+<p>
+  <b>Player:</b>
+  <%=h @share.player_id %>
+</p>
+
+<p>
+  <b>Ref:</b>
+  <%=h @share.ref %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @share.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_share_path(@share) %> |
+<%= link_to 'Back', shares_path %>

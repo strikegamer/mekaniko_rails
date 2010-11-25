@@ -13,17 +13,17 @@
   <div class="column grid_3 sidebar" style="background-color: #eee; -webkit-border-radius: 5px;">
     <h3>Latest Experiences</h3>
     <% Xp.find(:all, :limit => 6, :order => 'created_at DESC').each do |item| %>
-      <%= link_to("<p><strong>#{item.player.name}</strong> #{item.description}</p>", xp_path(item)) %>
+      <%= link_to("<p><strong>#{item.player.user.name}</strong> #{item.description}</p>", xp_path(item)) %>
     <% end %>
   </div>
 
   <div class="column grid_2 portrait">
-    <%= image_tag(@xp.player.picture, :class => "avatar", :alt => @xp.player.name, :height => "140", :width => "140") %>
+    <%= image_tag(@xp.player.user.profile_image_url, :class => "avatar", :alt => @xp.player.user.name, :height => "140", :width => "140") %>
     <p class="level">12</p>
   </div>
 
   <div class="column grid_7 share" style="height: 167px">
-    <p class="person"><%= link_to(@xp.player.name, player_path(@xp.player)) %> in <%= @xp.created_at.strftime("%d/%m/%Y at %H:%M") %></p>
+    <p class="person"><%= link_to(@xp.player.user.name, player_path(@xp.player)) %> in <%= @xp.created_at.strftime("%d/%m/%Y at %H:%M") %></p>
     <p class="act">Shared the following experience:</p>
     <p><%= @xp.description %></p>
   </div>
@@ -39,8 +39,8 @@
   <% @xp.comments.each_with_index do |comment, index| %>
     <div class="column grid_9 comment <%= cycle("highlighted", "") %>" id="<%= "comment_#{index + 1}" %>">
       <strong><%= index + 1 %></strong>
-      <%= image_tag(comment.player.picture, :alt => comment.player.name, :height => "45", :width => "45") %>
-      <p><%= link_to(comment.player.name, player_path(comment.player)) %> <span><%= comment.created_at.strftime("%d/%m/%Y at %H:%M")%></span></p>
+      <%= image_tag(comment.player.user.profile_image_url, :alt => comment.player.user.name, :height => "45", :width => "45") %>
+      <p><%= link_to(comment.player.user.name, player_path(comment.player)) %> <span><%= comment.created_at.strftime("%d/%m/%Y at %H:%M")%></span></p>
       <div>
         <cite><%= comment.content %></cite>
       </div>
