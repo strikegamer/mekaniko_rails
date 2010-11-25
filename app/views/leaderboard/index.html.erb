@@ -25,13 +25,13 @@
         <p><%= index+1 %>.</p>
       </td>
       <td>
-        <%= link_to(image_tag(player.picture, :height => "60", :width => "60"), player_path(player), {:class => "imageProfile"}) %>
+        <p><%= link_to(image_tag(player.picture, :height => "60", :width => "60"), player_path(player), {:class => "imageProfile"}) %></p>
       </td>
       <td>
-        <%= link_to(player.name, player_path(player), {:class => "nameAlign"}) %>
+        <p><%= link_to(player.name, player_path(player), {:class => "nameAlign"}) %></p>
       </td>
       <td>
-        <p><%= count_shares(player) %></p>
+        <p><%= player.shares %></p>
       </td>
       <td>
         <p><%= player.points %></p>
