@@ -32,7 +32,14 @@
 				<div id="feed">
 					<h3><strong>Activity</strong></h3>
 					<br/>
-					<%= @player.tasks.last.description %>
+					<% @player.tasks.find(:all, :limit => 30, :order => 'created_at DESC').each do |share| %>
+						<div class="feed_item" id="feed_item_1">	
+							<%= image_tag(@player.picture, :alt => "Danilo", :height => "60", :width => "60") %>
+							<%= @player.name %> started <%= share.description %><br />
+							<span class="feed_item_time">on <%= share.created_at %></span><br />
+							<a href="#" class="action">comment</a>
+						</div>
+					<% end %>
 					</div>
 				</div>
 			</div>
