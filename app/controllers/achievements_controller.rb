@@ -6,6 +6,7 @@ class AchievementsController < ApplicationController
   
   def show
     @achievement = Achievement.find(params[:id])
+    @achievements = Achievement.find(:all)
   end
 
 end
