@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :shares
 
-  map.resources :players, :has_many => :achievements
+  map.resources :players, :has_many => [:achievements, :shares]
   map.resources :achievements
   map.resources :task_helpers
   map.resources :comments

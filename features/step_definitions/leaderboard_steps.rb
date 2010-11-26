@@ -21,4 +21,3 @@ Then /^show the users sorted$/ do |table|
     end
   end
 end
-
