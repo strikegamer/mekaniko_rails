@@ -40,29 +40,6 @@
 	font-size: 25px;
 }
 
-.feed_item{
-  padding: 5px;
-  margin-bottom: 5px;
-  font-size: 14px;
-}
-
-.feed_item_name{
-	font-weight: bold;
-}
-.feed_item_link{
-  font-size: 12px;
-}
-
-.feed_item_time{
-color: #808080;
-font-size:13px;
-}
-
-.feed_item img{
-  float: left;
-  margin-right: 15px;
-}
-
 #feed{
 margin-top: 30px;
 padding-left: 10px;

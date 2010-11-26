@@ -16,7 +16,7 @@ class PlayersController < ApplicationController
   # GET /players/1.xml
   def show
     @player = Player.find(params[:id])
-
+	@shares = Share.find(:all, :limit => 10, :order => "created_at DESC")
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @player }
