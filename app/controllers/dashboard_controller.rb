@@ -6,9 +6,9 @@ class DashboardController < ApplicationController
       Player.create(:user_id => current_user.id, :points => 0)
       current_user.reload
     end
+
+    @player = current_user.player
     @players = Player.find(:all, :order => "points DESC")
-    @tasks = Task.find(:all)
-    @xps = Xp.find(:all)
-    @links = Link.find(:all)
+    @shares = Share.find(:all, :limit => 10, :order => "created_at DESC")
   end
 end

@@ -1,64 +1,99 @@
 <div class="row">
-	<div class="column grid_6">
-		<h2>Sharing center</h2>
-	</div>
+  <div class="column grid_12" style="border-bottom: 1px solid #eee;">
+    <h2>Sharing Center</h2>
+  </div>
 </div>
+
 <div class="row">
 	<div class="column grid_6">
-		<form name="form" style="margin: 12px; padding: 30px; font-size: 10pt">
-			<h4>What are you sharing?</h4><br/>
-			 <%= radio_button_tag("radio_button", "task", false) %> task
-			<!--input type="radio" name="radio_button" value="task" onclick="valor('task')" /-->
-			<input type="radio" name="radio_button" value="link" onclick="valor('link')" /> link
-			<input type="radio" name="radio_button" value="experience" onclick="valor('experience')" /> experience<br/>
-			<textarea name="textarea"rows="5" cols="55" style="width: 100%"></textarea><br/><br/>
-			<input type="text" name="link" value="www.rodeiodasgordas.cjb.net" style="display: none; font-size: 16px; width: 100%"/><br/>
-			<p><a class="awesome large gray button"> Share! </a></p>
-		</form>
+	  <br/>
+    <h3>What are you sharing?</h3>
+	  <br/>
+    <% form_for [@player, Share.new] do |f| %>
+      <input type="radio" name="type" value="Task" checked="checked" onclick="toggleStatus('Task');" /> Task
+      <input type="radio" name="type" value="Link" onclick="toggleStatus('Link');" class="share-type" /> Link
+      <input type="radio" name="type" value="Xp" onclick="toggleStatus('Xp');" class="share-type" /> Experience<br/>
+      <%= f.text_area :description, :rows => "5", :style => "width: 95%" %>
+      <%= f.label :ref, "Reference (with http://)" %><br />
+      <%= f.text_field :ref, :style => "width: 95%"  %><br />
+      <%= f.submit "Share!", :class => "awesome large black button", :onclick => "return validateForm();" %>
+    <% end %>
+    <input type="text" name="link" value="www.rodeiodasgordas.cjb.net" style="display: none; font-size: 16px; width: 100%"/><br/>
+  </div>
+
+  <br />
+  <div class="column grid_3 sidebar ranking" style="background-color: #eee; -webkit-border-radius: 5px;">
+    <h3>Ranking</h3>
+    <ul id="ranking">
+    <% @players.each_with_index do |player, index| %>
+      <li id="rank_<%= index + 1 %>">
+        <%= image_tag(player.user.profile_image_url, :alt => player.user.name, :height => "35", :width => "35") %>
+        <span class="player"><%= link_to(player.user.name, player_path(player)) %></span>
+        <span class="points"><%= player.points %> <small>pts</small></span>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+
+  <% if @shares.count > 0 %>
+  <div class="column grid_9">
+		<h3 style="border-bottom: 1px solid #eee;">Activity</h3>
+		<br />
 	</div>
-	<div class="column grid_5" style="margin-left: 40px; border: 1px solid gray;">
-		<legend><h3>Ranking</h3></legend>
-		
-		<table width="100%">
-			<col align="left" /><col align="left" /><col align="right" /><col align="right" />
-			<% @players.each_with_index do |player, index| %>
-				<% unless index >= 3 %>
-					<tr class="<%= cycle("highlighted", "") %>">
-						<td><h3><%= index + 1 %>.</h3></td>
-						<td><%= link_to(image_tag(player.user.profile_image_url, :alt => player.user.name, :height => "45", :width => "45"), player_path(player)) %></td>
-						<td><%= link_to(player.user.name, player_path(player)) %></td>
-						<td><%= player.points %></td>
-					</tr>
-				<% end %>
-			<% end %>
-		</table>
-		<a href="/leaderboard" style="float: right">Goto the Leaderboard</a>
-	</div>
-</div>
-<div class="row">
-	<div class="column grid_12">
-		<h2>Activity</h2><br/>
-	</div>
-</div>
-<div class="row" id="comments">
-	<% @players.each_with_index do |player, index| %>
-		<div class="column grid_11 activity <%= cycle("highlighted", "") %>" id="comment_<%= index + 1 %>" style="margin-left: 40px">
-			<br/>
-			<%= link_to(image_tag(player.user.profile_image_url, :alt => player.user.name, :height => "45", :width => "45"), player_path(player)) %>
-			<span>
-				<%= link_to(player.user.name, player_path(player)) %>
-				<% @tasks.each_with_index do |task, index| %>
-					<% if task.player_id == (index + 1) %>					
-						<%= task.description %>
-					<% end %>
-				<% end %>
-				<%= link_to("<b>Link Name</b>", player_path(player)) %>
-			</span><br/>
-			<div id="date_time">
-				21 Dec 10:00 <a href="#">comment</a>
-			</div>
-		</div>
-	<% end %>
-</div>
+  <% end %>
+
+  <div id="column grid_9">
+  <% @shares.each do |share| %>
+    <div class="column grid_9 comment <%= cycle("highlighted", "") %>">
+      <ul class="share-action">
+        <li><%= link_to("Comment", share_url(share) + "#new_comment") %></li>
+        <li>|</li>
+        <li><%= link_to("View", share_url(share)) %></li>
+      </ul>
+      <%= image_tag(share.player.user.profile_image_url, :alt => share.player.user.name, :height => "45", :width => "45") %>
+      <p style="margin-bottom: 10px"><%= link_to(share.player.user.name, player_path(share.player)) %> <span><%= share.created_at.strftime("%d/%m/%Y at %H:%M")%></span></p>
+      <div class="sharings-text">
+        <cite><%= share_description(share) %></cite>
+      </div>
+    </div>
+  <% end %>
+  </div>
 <br/>
 </div>
+
+<script type="text/javascript">
+  var type = "Task";
+
+  jQuery(document).ready(function(){
+    $('#share_ref').attr('disabled', true);
+    $('#share_description').focus();
+  })
+
+  function toggleStatus(item){
+    if(item == "Link"){
+      $('#share_ref').removeAttr('disabled');
+    }else{
+      $('#share_ref').attr('disabled', true);
+    }
+    $('#share_description').focus();
+    type = item;
+  }
+
+  function validateForm(){
+    if($('#share_description').val().length < 5){
+      alert('Invalid Description (at least 5 characters)');
+      $('#share_description').focus();
+      return false;
+    }
+
+    if(type == "Link"){
+      if($('#share_ref').val().length < 12){
+        alert('Invalid Reference (at least 12 characters)');
+        $('#share_ref').focus();
+        return false;
+      }
+    }
+
+    return true;
+  }
+</script>

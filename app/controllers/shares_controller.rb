@@ -40,7 +40,11 @@ class SharesController < ApplicationController
   # POST /shares
   # POST /shares.xml
   def create
-    @share = Share.new(params[:share])
+    @share = case params[:type]
+       when "Link" then Link.new(params[:share].merge(:player_id => params[:player_id]))
+       when "Task" then Task.new(params[:share].merge(:player_id => params[:player_id]))
+       else Xp.new(params[:share].merge(:player_id => params[:player_id]))
+    end
 
     respond_to do |format|
       if @share.save

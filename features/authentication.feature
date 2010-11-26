@@ -16,7 +16,7 @@ Feature: Authentication
 
 	Scenario: Player creation
 		Given I am logged in
-		When I go to the dashboard page
+		When I go to Dashboard
 		Then I should have the following player on my database
 		 |player-id | player-user-id| player-user-login | player-user-name | player-user-twitter_id |
      |1         | 1             | luisbebop         | luisbebop        | 15160417               |

@@ -22,7 +22,7 @@
     <p class="level"><%= @task.player.level.first %></p>
   </div>
 
-  <div class="column grid_7 share" style="height: 167px">
+  <div class="column grid_7 share" style="height: 170px">
     <p class="person"><%= link_to(@task.player.user.name, player_path(@task.player)) %> in <%= @task.created_at.strftime("%d/%m/%Y at %H:%M") %></p>
     <p class="act">Started the following task:</p>
     <% form_for [@task, TaskHelper.new] do |f| %>

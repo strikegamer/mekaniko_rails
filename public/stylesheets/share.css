@@ -132,7 +132,41 @@ textarea{
   margin-bottom: 15px;
 }
 
-textarea:focus{
+input[type="text"]{
+  font-size: 14px;
+  padding: 4px 8px;
+  margin-bottom: 15px;
+}
+
+textarea:focus, input[type="text"]:focus{
   background-color: #efffef;
   text-shadow: #fff 0px 1px 0px;
+}
+
+#comments cite a{
+  font-weight: lighter;
+  color: blue;
+}
+
+/*.share-action{
+  font-weight: lighter;
+  color: blue;
+}*/
+
+.share-action li{
+  margin: 10px 12px 0 0;
+  display: inline;
+  list-style: none;
+  float: right;
+  color: #ccc;
+}
+
+.share-action li a{
+  font-weight: lighter;
+  color: #ccc;
+}
+
+.sharings-text cite a{
+  color: blue;
+  font-weight: lighter;
 }
