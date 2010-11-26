@@ -19,7 +19,7 @@
 
   <div class="column grid_2 portrait">
     <%= image_tag(@link.player.user.profile_image_url, :class => "avatar", :alt => @link.player.user.name, :height => "140", :width => "140") %>
-    <p class="level">12</p>
+    <p class="level"><%= @link.player.level.first %></p>
   </div>
 
   <div class="column grid_7 share" style="height: 167px">

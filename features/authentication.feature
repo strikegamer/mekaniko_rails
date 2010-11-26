@@ -11,7 +11,7 @@ Feature: Authentication
     Then I should see "Home"
     And I should see "My Profile"
     And I should see "Leaderboard"
-    And I should see "logout"
+    And I should see "Logout"
     And I should have one user in my database
 
 	Scenario: Player creation
