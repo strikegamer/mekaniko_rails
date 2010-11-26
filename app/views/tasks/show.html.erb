@@ -71,7 +71,7 @@
     <% end %>
     <br />
     <% form_for [@task, Comment.new] do |f| %>
-      <input type="hidden" name="action_type" value="task" />
+      <input type="hidden" name="type" value="Task" />
       <%= f.text_area :content %>
       <%= f.submit "Post comment", :class => "awesome large green button" %>
     <% end %>

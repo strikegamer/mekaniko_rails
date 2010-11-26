@@ -56,7 +56,7 @@
     <% end %>
     <br />
     <% form_for [@link, Comment.new] do |f| %>
-      <input type="hidden" name="action_type" value="link" />
+      <input type="hidden" name="type" value="Link" />
       <%= f.text_area :content %>
       <%= f.submit "Post comment", :class => "awesome large green button" %>
     <% end %>
