@@ -27,13 +27,13 @@
 					<div class="column grid_8 profileBox">
 						<div class="row">
 							<div class="column grid_2">
-								<%= image_tag(player.picture, :class => "avatar", :alt => player.name, :height => "140", :width => "140") %>
+								<%= image_tag(player.user.profile_image_url, :class => "avatar", :alt => player.user.name, :height => "140", :width => "140") %>
 								<p class="level"><%=h player.points %></p>
 							</div>
 							<div class="column grid_3">
 								<div class="row">
 									<div class="column grid_3 profileName">
-										<h3><a href="/profile"><%=h player.name %></a></h3>
+										<h3><a href="/profile"><%=h player.user.name %></a></h3>
 									</div>
 								</div>
 								<div class="row">	
