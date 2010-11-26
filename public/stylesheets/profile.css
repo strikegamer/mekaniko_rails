@@ -3,6 +3,12 @@
 	font-weight:bold;
 	padding-bottom: 10px;
 }
+#arthur_name {
+	font-size: 25px;
+	font-weight:bold;
+	padding-bottom: 10px;
+	color: #E066FF;
+}
 
 #progressbar_outer{
 	border: 1px solid #ccc; 
@@ -12,10 +18,16 @@
 
 #progressbar_inner{
 	height: 30px;
-	font-size: 20px;
 	background-color: #66CCFF;
+}
+
+.levels { 
+	position: relative;
+	left: 80px;
+	top: 3px;
+	font-size: 20px;
 	font-weight: bold;
-	text-align:center;
+
 }
 
 .shares{

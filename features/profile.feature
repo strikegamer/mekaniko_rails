@@ -26,8 +26,7 @@ Feature: Profile page
 	    	| 1 | making Vx680 demo |
 		When I visit the "Danilo" profile page
 		Then I should see "making Vx680 demo"
-	
-	@test
+
 	Scenario: Show share counters
 		Given the following player records
 	      	| name | picture | points |
