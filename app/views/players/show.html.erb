@@ -1,12 +1,16 @@
 <div class="row">
-	<div class="column grid_9 separation">
+	<div class="column grid_9 separation" style="	border-right: 1px solid gray;">
 		<div class="row">
-			<div class="column grid_2">
-				<%= image_tag(@player.picture, :alt => "Profile pic") %>
+			<div class="column grid_2 portrait">
+			<%= image_tag(@player.user.profile_image_url, :class => "avatar", :alt => @player.user.name, :height => "140", :width => "140") %>
+    	<div class="level">12</div>
 			</div>
 			<div class="column grid_6">
-				<h2 id="player_name"><%= @player.name %></h2>
-				<div id="progressbar_outer"><div id="progressbar_inner"><%= @player.points %> /20</div></div>
+				<h2 id="player_name"><%= @player.user.name %></h2>
+				<% @ratio = sprintf('%0.2f', @player.points.to_f/20) %>
+				<% @width = @ratio*100 %>
+				<div id="progressbar_outer"><div id="progressbar_inner" style="width: <% @width %>;" ><%= @player.points %> /20</div></div>
+				<%= @width %>
 			</div>
 		</div>
 		<div class="row">
@@ -15,44 +19,42 @@
 			</div>
 			<div class="column grid_5">
 				<hr>
-				<div id="value">
 					<table style="width:60%">
 						<tr>
-							<td></td>
 							<td class="shares"><h6>TASKS</h6><br /><span class="numbers" id="tasks"><%= @player.tasks.count %></span></td>
 							<td class="shares"><h6>LINKS</h6><br /><span class="numbers" id="links"><%= @player.links.count %></span></td>
 							<td class="shares"><h6>XPS<h6><br /><span class="numbers" id="xps"><%= @player.xps.count %></span></td>
 						</tr>
 					</table>
-				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="column grid_8">
 				<div id="feed">
-					<h3><strong>Activity</strong></h3>
+					<h3><strong>Activity</strong></h3>					
 					<br/>
-					<% @player.tasks.find(:all, :limit => 30, :order => 'created_at DESC').each do |share| %>
-						<div class="feed_item" id="feed_item_1">	
-							<%= image_tag(@player.picture, :alt => "Danilo", :height => "60", :width => "60") %>
-							<%= @player.name %> started <%= share.description %><br />
-							<span class="feed_item_time">on <%= share.created_at %></span><br />
-							<a href="#" class="action">comment</a>
+					<% @player.tasks.find(:all, :limit => 10, :order => "created_at DESC").each do |share| %>
+					  <div class="feed_item <%= cycle("highlighted", "") %>">
+							<%= image_tag(@player.user.profile_image_url, :alt => @player.user.name, :height => "60", :width => "60") %>
+							<span class="feed_item_name"><%= @player.user.name %></span> shared<span class="feed_item_time"> <%= share.created_at.strftime("on %d/%m/%Y at %H:%M") %></span><br /><br />
+							<%= link_to(share.description, share_url(share)) %><br />
+							<div class="feed_item_link"><%= link_to("Comment", share_url(share) + "#new_comment", :class => "action") %>
+							<% if share.type == "Task" %>
+								- <%= link_to("Help Out", share_url(share) + "#new_task_helper", :class => "action") %>
+							<% end %>
+							</div>
 						</div>
 					<% end %>
 					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 	<div class="row">
 		<div class="column grid_3">
 			<div id="achievements">
 				<h3 id="achievementTitle"><strong>Achievements</strong></h3>
-				<% @player.achievements.find(:all, :limit => 30, :order => 'created_at DESC').each do |achievement| %>
-					<span class="badge">
-					<%=image_tag(@achievement.picture, :alt =>"alttext", :class =>"classname here") %>
-					</span>
+				<% Achievement.find(:all, :limit => 50, :order => "created_at ASC").each do |achievement| %>
+					<%= link_to(image_tag(achievement.image, :title => achievement.title + " : " + achievement.description, :class => "achievementPictureMini"), achievement_path(achievement)) %>
 				<% end %>
 			</div>	
 		</div>

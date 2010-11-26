@@ -9,8 +9,8 @@
 
 <% @players.each do |player| %>
   <tr>
-    <td><%=h player.name %></td>
-    <td><%=h player.picture %></td>
+    <td><%=h player.user.name %></td>
+    <td><%=h player.user.picture %></td>
     <td><%=h player.points %></td>
     <td><%= link_to 'Show', player %></td>
     <td><%= link_to 'Edit', edit_player_path(player) %></td>
