@@ -31,23 +31,21 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="column grid_8">
+			<div class="column grid_9">
 					<h3 style="feed"><strong>Activity</strong></h3>					
 						<div class="row" id="comments">
 						  <% @player.shares.find(:all, :limit => 10, :order => "created_at DESC").each do |share| %>
 						    <div class="column grid_9 comment <%= cycle("highlighted", "") %>">
 						      <ul class="share-action">
-							<li><%= link_to("Comment", share_url(share) + "#new_comment") %></li>
+							<li><%= link_to("Comment", share_url(share)) %></li>
 							<% if share.type == "Task" %>
-								<li>|</li><li><%= link_to("Help Out", share_url(share) + "#new_task_helper", :class => "action") %></li>
+								<li>|</li><li><%= link_to("Help Out", share_url(share), :class => "action") %></li>
 							<% end %>
-							<li>|</li>
-							<li><%= link_to("View", share_url(share)) %></li>
 						      </ul>
 						      <%= image_tag(share.player.user.profile_image_url, :alt => share.player.user.name, :height => "45", :width => "45") %>
 						      <p style="margin-bottom: 10px"><%= link_to(share.player.user.name, player_path(share.player)) %> <span><%= share.created_at.strftime("%d/%m/%Y at %H:%M")%></span></p>
 						      <div>
-							<cite style="margin-top: 10px"><%= share_description(share) %></cite>
+							<cite style="margin-top: 10px"><%= link_to(share_description(share),share_url(share)) %></cite>
 						      </div>
 						    </div>
 						  <% end %>

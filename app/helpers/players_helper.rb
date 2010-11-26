@@ -4,4 +4,9 @@ module PlayersHelper
 		return task_path(share) if share.type == "Task"
 		return xp_path(share) if share.type == "Xp"
 	end
+
+	def share_description(share)
+	      return link_to(share.description, share.ref) if share.type == "Link"
+	      share.description
+   	end
 end
