@@ -6,6 +6,9 @@ Feature: Task
   @share
   Scenario: Show task
     Given I am logged in
+    And the following achievement records
+      | title      | description | tasks | links | xps | shares | helps | image                                   |
+      | White belt | First Share | 1     | 1     | 1   | 1      | 1     | achievements/White_belt-first_share.jpg |
     And the following task records
       | player_id | description |
       | 1         | Lorem Ipsum |
@@ -16,6 +19,9 @@ Feature: Task
   @share
   Scenario: Comment
     Given I am logged in
+    And the following achievement records
+      | title      | description | tasks | links | xps | shares | helps | image                                   |
+      | White belt | First Share | 1     | 1     | 1   | 1      | 1     | achievements/White_belt-first_share.jpg |
     And the following task records
       | player_id | description |
       | 1         | Lorem Ipsum |
