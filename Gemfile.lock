@@ -70,6 +70,7 @@ DEPENDENCIES
   cucumber-rails (= 0.3.2)
   database_cleaner (= 0.6.0)
   fakeweb
+  json
   launchy
   rails (= 2.3.8)
   ruby-debug
