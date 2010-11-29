@@ -15,7 +15,7 @@ class GameRulesObserver < ActiveRecord::Observer
     end
     
     #Yellow Belt
-     if (link_count = 1) && (xp_count = 1) && (task_count = 1)
+     if (link_count == 1) && (xp_count == 1) && (task_count == 1)
        player.achievements << Achievement.find_by_title("Yellow Belt")
        player.save      
      end
@@ -27,7 +27,7 @@ class GameRulesObserver < ActiveRecord::Observer
      end
 
      #Green Belt
-     if (link_count > 5) && (xp_count > 5) && (task_count > 5)
+     if (link_count == 5) && (xp_count == 5) && (task_count == 5)
        player.achievements << Achievement.find_by_title("Green Belt")
        player.save      
      end
