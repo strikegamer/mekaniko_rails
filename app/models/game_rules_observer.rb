@@ -14,8 +14,8 @@ class GameRulesObserver < ActiveRecord::Observer
       player.save
     end
 
- 		 #Brown Belt
-     if (share_count == 1 and player.user.name="Arthur Macedo")
+     #Pink Belt
+     if (share_count == 1) && (player.user.name == "Arthur Macedo")
        player.achievements << Achievement.find_by_title("Pink Belt")
        player.save
      end
