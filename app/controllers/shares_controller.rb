@@ -48,6 +48,7 @@ class SharesController < ApplicationController
 
     respond_to do |format|
       if @share.save
+        @share.player.increase_points(1);
         format.html { redirect_to(@share, :notice => 'Share was successfully created.') }
         format.xml  { render :xml => @share, :status => :created, :location => @share }
       else

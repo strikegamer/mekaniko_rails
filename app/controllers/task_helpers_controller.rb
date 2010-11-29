@@ -7,6 +7,7 @@ class TaskHelpersController < ApplicationController
 
       respond_to do |format|
          if @task_helper.save
+            @task_helper.player.increase_points(1);
             format.html { redirect_to(@task) }
             format.js
          else

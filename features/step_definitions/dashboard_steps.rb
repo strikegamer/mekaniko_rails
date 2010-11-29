@@ -12,3 +12,7 @@ Then /^I should see the users on the following order$/ do |table|
       end
    end
 end
+
+Then /^I should have "([^"]*)" points$/ do |pts|
+   Player.last.points.should == pts.to_i
+end

@@ -23,6 +23,7 @@ Feature: Dashboard
     And I fill in "share_description" with "Just a new Task"
     And I press "Share!"
     Then I should be on first Task
+    And I should have "1" points
     And I should see "Just a new Task"
 
   Scenario: Create a new Link
@@ -32,6 +33,7 @@ Feature: Dashboard
     And I fill in "share_ref" with "http://www.planobe.com.br"
     And I press "Share!"
     Then I should be on first Link
+    And I should have "1" points
     And I should see "Just a new Link"
 
   Scenario: Create a new Xp
@@ -40,6 +42,7 @@ Feature: Dashboard
     And I fill in "share_description" with "Just a new Xp"
     And I press "Share!"
     Then I should be on first Xp
+    And I should have "1" points
     And I should see "Just a new Xp"
 
   #TODO: Scenario for the Activity

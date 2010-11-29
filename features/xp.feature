@@ -3,7 +3,6 @@ Feature: XP
   As a player
   I want share experiences
 
-  @share
   Scenario: Show xp
     Given I am logged in
     And the following achievement records
@@ -16,7 +15,6 @@ Feature: XP
     Then I should see "Lorem Ipsum"
     And I should see "luisbebop"
 
-  @share
   Scenario: Comment
     Given I am logged in
     And the following achievement records

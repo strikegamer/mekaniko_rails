@@ -3,7 +3,6 @@ Feature: Link
   As a player
   I want share links
 
-  @share
   Scenario: Show link
     Given I am logged in
     And the following achievement records

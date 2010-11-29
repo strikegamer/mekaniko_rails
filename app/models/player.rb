@@ -26,4 +26,9 @@ class Player < ActiveRecord::Base
          when 280..inf then return [8,999]
       end
    end
+
+   def increase_points(pts)
+      self.points += pts
+      self.save
+   end
 end

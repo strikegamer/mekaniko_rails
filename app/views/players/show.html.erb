@@ -43,8 +43,9 @@
           <div class="column grid_9 comment <%= cycle("highlighted", "") %>">
             <ul class="share-action">
               <li><%= link_to("Comment", share_url(share)) %></li>
-              <% if share.type == "Task" %>
-              <li>|</li><li><%= link_to("Help Out", share_url(share), :class => "action") %></li>
+              <% if share.class.to_s == "Task" %>
+              <li>|</li>
+              <li><%= link_to("Help Out", share_url(share), :class => "action") %></li>
               <% end %>
             </ul>
             <%= image_tag(share.player.user.profile_image_url, :alt => share.player.user.name, :height => "45", :width => "45") %>

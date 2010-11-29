@@ -3,7 +3,6 @@ Feature: Task
   As a player
   I want share tasks
 
-  @share
   Scenario: Show task
     Given I am logged in
     And the following achievement records
@@ -16,7 +15,6 @@ Feature: Task
     Then I should see "Lorem Ipsum"
     And I should see "luisbebop"
 
-  @share
   Scenario: Comment
     Given I am logged in
     And the following achievement records

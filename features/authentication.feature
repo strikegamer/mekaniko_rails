@@ -1,4 +1,3 @@
-@luisbebop
 Feature: Authentication
 	In order to play in mekaniko and conquer the mekaniko's world
 	As a player
