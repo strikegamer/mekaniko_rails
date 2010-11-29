@@ -1,7 +1,6 @@
 module DashboardHelper
    def share_description(share)
-      return link_to(share.description, share.ref) if share.type == "Link"
-      share.description
+      link_to(share.description, share_path(share))
    end
 
    def share_url(share)

@@ -30,28 +30,33 @@
 					</table>
 			</div>
 		</div>
-		<div class="row">
-			<div class="column grid_9">
-					<h3 style="feed"><strong>Activity</strong></h3>					
-						<div class="row" id="comments">
-						  <% @player.shares.find(:all, :limit => 10, :order => "created_at DESC").each do |share| %>
-						    <div class="column grid_9 comment <%= cycle("highlighted", "") %>">
-						      <ul class="share-action">
-							<li><%= link_to("Comment", share_url(share)) %></li>
-							<% if share.type == "Task" %>
-								<li>|</li><li><%= link_to("Help Out", share_url(share), :class => "action") %></li>
-							<% end %>
-						      </ul>
-						      <%= image_tag(share.player.user.profile_image_url, :alt => share.player.user.name, :height => "45", :width => "45") %>
-						      <p style="margin-bottom: 10px"><%= link_to(share.player.user.name, player_path(share.player)) %> <span><%= share.created_at.strftime("%d/%m/%Y at %H:%M")%></span></p>
-						      <div>
-							<cite style="margin-top: 10px"><%= link_to(share_description(share),share_url(share)) %></cite>
-						      </div>
-						    </div>
-						  <% end %>
-						</div>
-					</div>
-			</div>
+    <div class="row">
+      <div class="column grid_9">
+        <div class="row" id="comments">
+        <% if @player.shares.count > 0 %>
+        <div class="column grid_9">
+          <h3 style="border-bottom: 1px solid #eee;">Activity</h3>
+          <br />
+        </div>
+        <% end %>
+        <% @player.shares.find(:all, :limit => 10, :order => "created_at DESC").each do |share| %>
+          <div class="column grid_9 comment <%= cycle("highlighted", "") %>">
+            <ul class="share-action">
+              <li><%= link_to("Comment", share_url(share)) %></li>
+              <% if share.type == "Task" %>
+              <li>|</li><li><%= link_to("Help Out", share_url(share), :class => "action") %></li>
+              <% end %>
+            </ul>
+            <%= image_tag(share.player.user.profile_image_url, :alt => share.player.user.name, :height => "45", :width => "45") %>
+            <p style="margin-bottom: 10px"><%= link_to(share.player.user.name, player_path(share.player)) %> <span><%= share.created_at.strftime("%d/%m/%Y at %H:%M")%></span></p>
+            <div>
+              <cite><%= link_to(share.description, share_url(share)) %></cite>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
 	</div>
 	<div class="row">
 		<div class="column grid_3">

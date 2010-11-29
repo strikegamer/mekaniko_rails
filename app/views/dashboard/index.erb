@@ -10,9 +10,9 @@
     <h3>What are you sharing?</h3>
 	  <br/>
     <% form_for [@player, Share.new] do |f| %>
-      <input type="radio" name="type" value="Task" checked="checked" onclick="toggleStatus('Task');" /> Task
-      <input type="radio" name="type" value="Link" onclick="toggleStatus('Link');" class="share-type" /> Link
-      <input type="radio" name="type" value="Xp" onclick="toggleStatus('Xp');" class="share-type" /> Experience<br/>
+      <input type="radio" name="type" value="Task" id="set-Task" checked="checked" onclick="toggleStatus('Task');" /> Task
+      <input type="radio" name="type" value="Link" id="set-Link" onclick="toggleStatus('Link');" class="share-type" /> Link
+      <input type="radio" name="type" value="Xp" id="set-Xp" onclick="toggleStatus('Xp');" class="share-type" /> Experience<br/>
       <%= f.text_area :description, :rows => "5", :style => "width: 95%" %>
       <%= f.label :ref, "Reference (with http://)" %><br />
       <%= f.text_field :ref, :style => "width: 95%"  %><br />
@@ -37,9 +37,9 @@
 
   <% if @shares.count > 0 %>
   <div class="column grid_9">
-		<h3 style="border-bottom: 1px solid #eee;">Activity</h3>
-		<br />
-	</div>
+    <h3 style="border-bottom: 1px solid #eee;">Activity</h3>
+    <br />
+  </div>
   <% end %>
 
   <div id="column grid_9">
@@ -47,13 +47,11 @@
     <div class="column grid_9 comment <%= cycle("highlighted", "") %>">
       <ul class="share-action">
         <li><%= link_to("Comment", share_url(share) + "#new_comment") %></li>
-        <li>|</li>
-        <li><%= link_to("View", share_url(share)) %></li>
       </ul>
       <%= image_tag(share.player.user.profile_image_url, :alt => share.player.user.name, :height => "45", :width => "45") %>
       <p style="margin-bottom: 10px"><%= link_to(share.player.user.name, player_path(share.player)) %> <span><%= share.created_at.strftime("%d/%m/%Y at %H:%M")%></span></p>
       <div class="sharings-text">
-        <cite><%= share_description(share) %></cite>
+        <cite><%= link_to(share.description, share_url(share)) %></cite>
       </div>
     </div>
   <% end %>

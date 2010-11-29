@@ -17,35 +17,29 @@ Feature: Dashboard
       | Danilo   | http://planobe.com.br/images/photo-danilo.png   | 42    |
       | Arthur   | http://planobe.com.br/images/photo-arthur.png   | 40    |
 
-  # Scenario: Activity List TODO: Fix this scenario
-  #   Given the following player records
-  #     | name          | picture                                       | points|
-  #     | Danilo Matias | http://planobe.com.br/images/photo-danilo.png | 25    |
-  #     | Bruno Freitas | http://planobe.com.br/images/photo-bruno.png  | 43    |
-  #     | Dennis Moons  | http://planobe.com.br/images/photo-dennis.png | 24    |
-  #     | Luis Silva    | http://planobe.com.br/images/photo-luis.png   | 11    |
-  #       And the following task records
-  #     | player_id | description    | task_helpers   |
-  #     | 1         | Making a demo! |                |
-  #   And the following xp records
-  #     | player_id | description   |
-  #     | 2         | read The Mist |
-  #   And the following link records
-  #     | player_id | description     | ref                                     |
-  #     | 3         | Awesome numbers | http://www.plataformawalk.com.br        |
-  #   And the following achievement records
-  #     | player_id | title               |
-  #     | 4         | Desclassificado!    |
-  #   When I am on Dashboard
-  #   Then I should see "Activity"
-  #   And I should see "Danilo Matias"
-  #   And I should see "Making a demo!"
-  #   And I should see "Bruno Freitas"
-  #   And I should see "read The Mist"
-  #   And I should see "Dennis Moons"
-  #   And I should see "Awesome numbers"
-  #   And I should see "Luis Silva"
-  #   And I should see "Desclassificado!"
-    
-    
-    
+  Scenario: Create a new Task
+    Given I am logged in
+    When I choose "set-Task"
+    And I fill in "share_description" with "Just a new Task"
+    And I press "Share!"
+    Then I should be on first Task
+    And I should see "Just a new Task"
+
+  Scenario: Create a new Link
+    Given I am logged in
+    When I choose "set-Link"
+    And I fill in "share_description" with "Just a new Link"
+    And I fill in "share_ref" with "http://www.planobe.com.br"
+    And I press "Share!"
+    Then I should be on first Link
+    And I should see "Just a new Link"
+
+  Scenario: Create a new Xp
+    Given I am logged in
+    When I choose "set-Xp"
+    And I fill in "share_description" with "Just a new Xp"
+    And I press "Share!"
+    Then I should be on first Xp
+    And I should see "Just a new Xp"
+
+  #TODO: Scenario for the Activity
