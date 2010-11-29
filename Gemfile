@@ -1,6 +1,7 @@
 source :gemcutter
 gem "rails", "2.3.8"
 gem "twitter-auth", :require => "twitter_auth"
+gem "json"
 
 group :development, :test, :cucumber do
   gem "sqlite3-ruby", :require => "sqlite3"
