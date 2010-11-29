@@ -5,7 +5,8 @@ Given /^the following player records$/ do |table|
 end
 
 When /^I visit the "([^"]*)" profile page$/ do |player_name|
-  player = Player.find_by_name!(player_name)
+  user = User.find_by_name!(player_name)
+  player = user.player
    visit player_url(player)
 end
 

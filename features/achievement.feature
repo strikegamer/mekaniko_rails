@@ -15,10 +15,10 @@ Feature: Achievement
       | Jean     | http://planobe.com.br/images/photo-jean.png     | 30    |
       | Luis     | http://planobe.com.br/images/photo-luis.png     | 28    |
     And the following achievement records
-    | title        | description          | tasks | links | xps | shares | helps | image                       |
-    | White Belt   | First Share          |  1    |  1    |  1  |   1    |   1   | achievements/White_belt-first_share.jpg  |
-    | Yellow Belt  | First Combo Share    |  1    |  1    |  1  |   1    |   1   | achievements/Yellow_belt-first_combo_share.jpg |
-    | Orange Belt  | 5 Shares             |  5    |  5    |  5  |   5    |   5   | achievements/Orange_belt-five_shares.jpg  |
+    | title        | description          | image                       |
+    | White Belt   | First Share          | achievements/White_belt-first_share.jpg  |
+    | Yellow Belt  | First Combo Share    | achievements/Yellow_belt-first_combo_share.jpg |
+    | Orange Belt  | 5 Shares             | achievements/Orange_belt-five_shares.jpg  |
     And the following unlocked achievements records
     | player_id | achievement_id |
     | 1         | 1              |  

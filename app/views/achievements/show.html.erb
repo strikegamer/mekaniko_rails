@@ -26,9 +26,9 @@
 				<div class="row">
 					<div class="column grid_8 profileBox">
 						<div class="row">
-							<div class="column grid_2">
+							<div class="column grid_2 portrait">
 								<%= image_tag(player.user.profile_image_url, :class => "avatar", :alt => player.user.name, :height => "140", :width => "140") %>
-								<p class="level"><%=h player.level %></p>
+								<p class="level"><%=h player.level.first %></p>
 							</div>
 							<div class="column grid_3">
 								<div class="row">
@@ -53,14 +53,8 @@
 			<div id="achievements">
 				<h3>Achievements</h3>
 				<% @achievements.each do |achievement| %>
-					<%=h link_to(image_tag(achievement.image, :title => achievement.title, :class => 'achievementPictureMini'), achievement_path(achievement)) %>
+					<%=h link_to(image_tag(achievement.image, :title => achievement.title + ' - ' + achievement.description, :class => 'achievementPictureMini'), achievement_path(achievement)) %>
 				<% end %>
 			</div>
 		</div>
-		<div class="row">
-		<div id="achievementNextStep" class="column grid_12">
-			<h3>NEXT:</h3><br/>
-			Diamond Phone (Make 20 phone calls)</div>	
-		</div>
-	</div>	
 	</div>	

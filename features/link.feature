@@ -7,8 +7,8 @@ Feature: Link
   Scenario: Show link
     Given I am logged in
     And the following achievement records
-      | title      | description | tasks | links | xps | shares | helps | image                                   |
-      | White belt | First Share | 1     | 1     | 1   | 1      | 1     | achievements/White_belt-first_share.jpg |
+      | title      | description | image                                   |
+      | White Belt | First Share | achievements/White_belt-first_share.jpg |
     And the following link records
       | player_id | description | ref                   |
       | 1         | Lorem Ipsum | http://planobe.com.br |
@@ -20,8 +20,8 @@ Feature: Link
   Scenario: Comment
     Given I am logged in
     And the following achievement records
-      | title      | description | tasks | links | xps | shares | helps | image                                   |
-      | White belt | First Share | 1     | 1     | 1   | 1      | 1     | achievements/White_belt-first_share.jpg |
+      | title      | description | image                                   |
+      | White Belt | First Share | achievements/White_belt-first_share.jpg |
     And the following link records
       | player_id | description | ref                   |
       | 1         | Lorem Ipsum | http://planobe.com.br |
