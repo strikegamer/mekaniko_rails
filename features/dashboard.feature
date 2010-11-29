@@ -18,7 +18,10 @@ Feature: Dashboard
       | Arthur   | http://planobe.com.br/images/photo-arthur.png   | 40    |
 
   Scenario: Create a new Task
-    Given I am logged in
+    Given the following achievement records
+      | title      | description | image                                   |
+      | White Belt | First Share | achievements/White_belt-first_share.jpg |
+    And I am logged in
     When I choose "set-Task"
     And I fill in "share_description" with "Just a new Task"
     And I press "Share!"
@@ -27,7 +30,10 @@ Feature: Dashboard
     And I should see "Just a new Task"
 
   Scenario: Create a new Link
-    Given I am logged in
+   Given the following achievement records
+    | title      | description | image                                   |
+    | White Belt | First Share | achievements/White_belt-first_share.jpg |
+    And I am logged in
     When I choose "set-Link"
     And I fill in "share_description" with "Just a new Link"
     And I fill in "share_ref" with "http://www.planobe.com.br"
@@ -37,7 +43,10 @@ Feature: Dashboard
     And I should see "Just a new Link"
 
   Scenario: Create a new Xp
-    Given I am logged in
+    Given the following achievement records
+    | title      | description | image                                   |
+    | White Belt | First Share | achievements/White_belt-first_share.jpg |
+    And I am logged in
     When I choose "set-Xp"
     And I fill in "share_description" with "Just a new Xp"
     And I press "Share!"

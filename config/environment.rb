@@ -32,7 +32,7 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
   # I had to comment the line below because I think the model game_rules_observer.rb wasn't added on Jean's last commit
-  # config.active_record.observers = :game_rules_observer
+  config.active_record.observers = :game_rules_observer
   
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run "rake -D time" for a list of tasks for finding time zone names.
