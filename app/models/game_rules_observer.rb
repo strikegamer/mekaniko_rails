@@ -13,6 +13,12 @@ class GameRulesObserver < ActiveRecord::Observer
       player.achievements << Achievement.find_by_title("White Belt")
       player.save
     end
+
+     #Pink Belt
+     if (share_count == 1) && (player.user.name == "Arthur Macedo")
+       player.achievements << Achievement.find_by_title("Pink Belt")
+       player.save
+     end
     
     #Yellow Belt
      if (link_count == 1) && (xp_count == 1) && (task_count == 1)
@@ -43,8 +49,6 @@ class GameRulesObserver < ActiveRecord::Observer
        player.achievements << Achievement.find_by_title("Brown Belt")
        player.save
      end
-    
-    
  
   end
 end

@@ -107,11 +107,7 @@ strong{
 	text-shadow: 2px 2px 3px #999;
 }
 
-.header_title a{
-text-decoration:none;
-}
-
-.header_title a:visited{
+.header_title a, .header_title a:visited, .header_title a:active, .header_title a:hover{
 text-decoration:none;
 color: #fff;
 }

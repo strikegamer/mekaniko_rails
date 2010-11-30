@@ -17,6 +17,11 @@ ActiveRecord::Schema.define(:version => 20101125173848) do
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tasks"
+    t.integer  "links"
+    t.integer  "xps"
+    t.integer  "shares"
+    t.integer  "helps"
   end
 
   create_table "comments", :force => true do |t|
