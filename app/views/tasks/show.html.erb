@@ -27,7 +27,7 @@
     <p class="act">Started the following task:</p>
     <% form_for [@task, TaskHelper.new] do |f| %>
       <%= error_messages_for 'task_helper' %>
-      <p><%= @task.description %> <%= start_to_help_link(@task, 1) %></p>
+      <p><%= h(@task.description) %> <%= start_to_help_link(@task, 1) %></p>
     <% end %>
   </div>
 

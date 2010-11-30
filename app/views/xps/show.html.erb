@@ -25,7 +25,7 @@
   <div class="column grid_7 share" style="height: 170px">
     <p class="person"><%= link_to(@xp.player.user.name, player_path(@xp.player)) %> in <%= @xp.created_at.strftime("%d/%m/%Y at %H:%M") %></p>
     <p class="act">Shared the following experience:</p>
-    <p><%= @xp.description %></p>
+    <p><%= h(@xp.description) %></p>
   </div>
 
   <% if @xp.comments.count > 0 %>

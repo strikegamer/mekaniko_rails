@@ -55,7 +55,7 @@
       <%= image_tag(share.player.user.profile_image_url, :alt => share.player.user.name, :height => "45", :width => "45") %>
       <p style="margin-bottom: 10px"><%= link_to(share.player.user.name, player_path(share.player)) %> <span><%= share.created_at.strftime("%d/%m/%Y at %H:%M")%></span></p>
       <div class="sharings-text">
-        <cite><%= link_to(share.description, share_url(share)) %></cite>
+        <cite><%= link_to(h(share.description), share_url(share)) %></cite>
       </div>
     </div>
   <% end %>

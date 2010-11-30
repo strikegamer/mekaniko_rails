@@ -25,7 +25,7 @@
   <div class="column grid_7 share" style="height: 170px">
     <p class="person"><%= link_to(@link.player.user.name, player_path(@link.player)) %> in <%= @link.created_at.strftime("%d/%m/%Y at %H:%M") %></p>
     <p class="act">Shared the following link:</p>
-    <%= link_to(@link.description, @link.ref, :class => "link") %>
+    <%= link_to(h(@link.description), @link.ref, :class => "link") %>
   </div>
 
   <% if @link.comments.count > 0 %>

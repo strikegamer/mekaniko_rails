@@ -6,7 +6,7 @@ module PlayersHelper
    end
 
    def share_description(share)
-      return link_to(share.description, share.ref) if share.type == "Link"
-      share.description
+      return link_to(h(share.description), share.ref) if share.type == "Link"
+      h(share.description)
    end
 end
