@@ -13,7 +13,7 @@
   <div class="column grid_3 sidebar" style="background-color: #eee; -webkit-border-radius: 5px;">
     <h3>Latest Experiences</h3>
     <% Xp.find(:all, :limit => 6, :order => 'created_at DESC').each do |item| %>
-      <%= link_to("<p><strong>#{item.player.user.name}</strong> #{item.description}</p>", xp_path(item)) %>
+      <%= link_to("<p><strong>#{item.player.user.name}</strong> #{h(item.description)}</p>", xp_path(item)) %>
     <% end %>
   </div>
 
