@@ -4,7 +4,7 @@ Feature: Achievement
   I want see achievement details
 
   Scenario: Show achievement page
-    And the following users records
+    Given the following users records
       | name     | profile_image_url                               | points|
       | Arthur   | http://planobe.com.br/images/photo-arthur.png   | 38    |
       | Bruno    | http://planobe.com.br/images/photo-bruno.png    | 32    |

@@ -27,6 +27,6 @@
       { :title => 'Top Dog',              :description => 'Get the top of the ranking',             :image => 'achievements/ranking.jpg'},
       { :title => 'Shareaholic',          :description => 'Push Mekanikos button for one week',     :image => 'achievements/five_days_in_a_row.jpg'},
       { :title => 'Teamwork',             :description => 'Work together with 4 colleagues',        :image => 'achievements/Teamwork.jpg'},
-      { :title => 'Workaholic',           :description => 'Share five tasks in one day',            :image => 'achievements/Workaholic.jpg'}
-			{ :title => 'Pink belt',           	:description => 'Sign up',            										:image => 'achievements/pink-belt.png'}
+      { :title => 'Workaholic',           :description => 'Share five tasks in one day',            :image => 'achievements/Workaholic.jpg'},
+      { :title => 'Pink Belt',            :description => 'It\'s okay to be gay',                   :image => 'achievements/pink-belt.png'}
     ])
