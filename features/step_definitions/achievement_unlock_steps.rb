@@ -37,4 +37,17 @@ Then /^I should have "([^"]*)" helps$/ do |quantity|
   TaskHelper.find_all_by_player_id(user.player.id).count == quantity.to_i
 end
 
+When /^I make the first comment in an anyone share$/ do
+  user = User.first
+  task = Task.new(:player_id => user.player.id)
+  task.save
+  comments = task.comments.new(:player_id => user.player.id)
+  comments.save
+end
+
+Then /^I should have "([^"]*)" achievements unlocked$/ do |quantity|
+  user = User.first
+  user.player.achievements.count.should == quantity.to_i
+end
+
 

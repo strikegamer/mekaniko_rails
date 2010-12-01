@@ -3,6 +3,18 @@ Feature: Achievement Unlock
   As a player
   I want play the game and check the rules
 
+Scenario: Verify Achievements awarded
+  Given the following achievement records
+    | title         | description          | image               |
+    | White Belt    | Description Sample  | imageurlsample.jpg   |
+    | Good Boy      | Description Sample  | imageurlsample.jpg   |
+  And I am logged in
+    When I posted "1" "Task"
+    Then I should unlock the "White Belt" achievement
+    When I help "1" times in an anyone Task
+    Then I should unlock the "Good Boy" achievement
+    Then I should have "2" achievements unlocked
+
 Scenario: Unlock White Belt
   Given the following achievement records
     | title         | description          | image               |
@@ -158,5 +170,24 @@ Scenario: Unlock Jezus
   And I am logged in
     When I help "50" times in an anyone Task
     And I should unlock the "Jezus" achievement
+
+Scenario: Unlock First Words
+  Given the following achievement records
+    | title         | description          | image               |
+    | White Belt    | Description Sample  | imageurlsample.jpg   |
+    | Yellow Belt   | Description Sample  | imageurlsample.jpg   |
+    | Orange Belt   | Description Sample  | imageurlsample.jpg   |
+    | Green Belt    | Description Sample  | imageurlsample.jpg   |
+    | Blue Belt     | Description Sample  | imageurlsample.jpg   |
+    | Brown Belt    | Description Sample  | imageurlsample.jpg   |
+    | Good Boy      | Description Sample  | imageurlsample.jpg   |
+    | Santas Little Helper   | Description Sample  | imageurlsample.jpg     |
+    | Good Samaritan         | Description Sample  | imageurlsample.jpg     |
+    | Think of yourself      | Description Sample  | imageurlsample.jpg     |
+    | Jezus                  | Description Sample  | imageurlsample.jpg     |
+    | First Words            | Description Sample  | imageurlsample.jpg     |
+  And I am logged in
+    When I make the first comment in an anyone share
+    And I should unlock the "First Words" achievement
 
 

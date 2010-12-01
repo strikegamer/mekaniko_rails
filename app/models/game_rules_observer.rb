@@ -10,69 +10,70 @@ class GameRulesObserver < ActiveRecord::Observer
     help_count = TaskHelper.find_all_by_player_id(player.id).count
     comment_count = Comment.find_all_by_player_id(player.id).count
     
-    #White Belt
-    if (share_count == 1)
-      player.achievements << Achievement.find_by_title("White Belt")
+    achievement_name = 'White Belt'
+    if (share_count == 1) and (achievement_already_unlocked(player, achievement_name) == false)
+         player.achievements << Achievement.find_by_title(achievement_name)
     end
     
-     #Pink Belt
-      if (share_count == 1) and (player.user.name == 'Arthur Macedo')
-        player.achievements << Achievement.find_by_title("Pink Belt")
-      end
-    
-    #Yellow Belt
-    if (link_count == 1) and (xp_count == 1) and (task_count == 1)
-       player.achievements << Achievement.find_by_title("Yellow Belt")       
+    achievement_name = 'Yellow Belt'
+    if (link_count == 1) and (xp_count == 1) and (task_count == 1) and (achievement_already_unlocked(player, achievement_name) == false)
+        player.achievements << Achievement.find_by_title(achievement_name) 
     end
 
-     #Orange Belt
-     if (share_count == 5)
-       player.achievements << Achievement.find_by_title("Orange Belt")
+     achievement_name = 'Orange Belt'
+     if (share_count == 5) and (achievement_already_unlocked(player, achievement_name) == false)
+       player.achievements << Achievement.find_by_title(achievement_name)
      end
 
-     #Green Belt
-     if (link_count == 5) || (xp_count == 5) || (task_count == 5)
-       player.achievements << Achievement.find_by_title("Green Belt")
+     achievement_name = 'Green Belt'
+     if (link_count == 5) || (xp_count == 5) || (task_count == 5) and (achievement_already_unlocked(player, achievement_name) == false)
+       player.achievements << Achievement.find_by_title(achievement_name)
      end
 
-     #Blue Belt
-     if (share_count == 20)
-       player.achievements << Achievement.find_by_title("Blue Belt")
+     achievement_name = 'Blue Belt'
+     if (share_count == 20) and (achievement_already_unlocked(player, achievement_name) == false)
+       player.achievements << Achievement.find_by_title(achievement_name)
      end
 
-     #Brown Belt
-     if (share_count == 50)
-       player.achievements << Achievement.find_by_title("Brown Belt")
+     achievement_name = 'Brown Belt'
+     if (share_count == 50) and (achievement_already_unlocked(player, achievement_name) == false)
+       player.achievements << Achievement.find_by_title(achievement_name)
      end
      
-     #Good Boy
-      if (help_count == 1)
-        player.achievements << Achievement.find_by_title("Good Boy")
+     achievement_name = 'Good Boy'
+      if (help_count == 1) and (achievement_already_unlocked(player, achievement_name) == false)
+         player.achievements << Achievement.find_by_title(achievement_name)          
+       end
+      
+     achievement_name = 'Santas Little Helper'
+      if (help_count == 5) and (achievement_already_unlocked(player, achievement_name) == false)
+        player.achievements << Achievement.find_by_title(achievement_name)
       end
       
-     #GSantas Little Helper
-      if (help_count == 5)
-        player.achievements << Achievement.find_by_title("Santas Little Helper")
+      achievement_name = 'Good Samaritan'
+      if (help_count == 15) and (achievement_already_unlocked(player, achievement_name) == false)
+        player.achievements << Achievement.find_by_title(achievement_name)
       end
       
-      #Good Samaritan
-      if (help_count == 15)
-        player.achievements << Achievement.find_by_title("Good Samaritan")
+     achievement_name = 'Think of yourself'
+      if (help_count == 25) and (achievement_already_unlocked(player, achievement_name) == false)
+        player.achievements << Achievement.find_by_title(achievement_name)
       end
       
-     #Think of yourself
-      if (help_count == 25)
-        player.achievements << Achievement.find_by_title("Think of yourself")
-      end
+    achievement_name = 'Jezus'
+      if (help_count == 50) and (achievement_already_unlocked(player, achievement_name) == false)
+        player.achievements << Achievement.find_by_title(achievement_name)
+      end 
       
-    #Jezus
-      if (help_count == 50)
-        player.achievements << Achievement.find_by_title("Jezus")
-      end
-      
-      
-     
      player.save
  
+  end
+  
+  def achievement_already_unlocked(player, achievement_title)
+    if (player.achievements.find_all_by_title(achievement_title).count == 1)
+      return true
+    else
+      return false
+    end
   end
 end
