@@ -16,7 +16,7 @@ class GameRulesObserver < ActiveRecord::Observer
     end
     
     achievement_name = 'Yellow Belt'
-    if (link_count == 1) and (xp_count == 1) and (task_count == 1) and (achievement_already_unlocked(player, achievement_name) == false)
+    if (link_count >= 1) and (xp_count >= 1) and (task_count >= 1) and (achievement_already_unlocked(player, achievement_name) == false)
         player.achievements << Achievement.find_by_title(achievement_name) 
     end
 
@@ -26,7 +26,7 @@ class GameRulesObserver < ActiveRecord::Observer
      end
 
      achievement_name = 'Green Belt'
-     if (link_count == 5) || (xp_count == 5) || (task_count == 5) and (achievement_already_unlocked(player, achievement_name) == false)
+     if (link_count >= 5) || (xp_count >= 5) || (task_count >= 5) and (achievement_already_unlocked(player, achievement_name) == false)
        player.achievements << Achievement.find_by_title(achievement_name)
      end
 
