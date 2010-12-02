@@ -73,7 +73,7 @@
     <% form_for [@task, Comment.new] do |f| %>
       <input type="hidden" name="type" value="Task" />
       <%= f.text_area :content %>
-      <%= f.submit "Post comment", :class => "awesome large green button", => onclick="_gaq.push(['_trackEvent', 'Actions', 'Comment', 'task-share']);" %>
+      <%= f.submit "Post comment", :class => "awesome large green button", onclick => "_gaq.push(['_trackEvent', 'Actions', 'Comment', 'task-share']);" %>
     <% end %>
   </div>
 </div>
