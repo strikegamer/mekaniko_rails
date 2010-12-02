@@ -16,7 +16,7 @@
       <%= f.text_area :description, :rows => "5", :style => "width: 95%" %>
       <%= f.label :ref, "Reference (with http://)" %><br />
       <%= f.text_field :ref, :style => "width: 95%"  %><br />
-      <%= f.submit "Share!", :class => "awesome large black button", :onclick => "return validateForm();" %>
+      <%= f.submit "Share!", :class => "awesome large black button", :onclick => "return validateForm(); _gaq.push(['_trackEvent', 'Actions', 'Share', 'dashboard']);" %>
     <% end %>
     <input type="text" name="link" value="www.rodeiodasgordas.cjb.net" style="display: none; font-size: 16px; width: 100%"/><br/>
   </div>

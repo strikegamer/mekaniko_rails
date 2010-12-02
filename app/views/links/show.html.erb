@@ -58,7 +58,7 @@
     <% form_for [@link, Comment.new] do |f| %>
       <input type="hidden" name="type" value="Link" />
       <%= f.text_area :content %>
-      <%= f.submit "Post comment", :class => "awesome large green button" %>
+      <%= f.submit "Post comment", :class => "awesome large green button", => onclick="_gaq.push(['_trackEvent', 'Actions', 'Comment', 'link-share']);" %>
     <% end %>
   </div>
 </div>

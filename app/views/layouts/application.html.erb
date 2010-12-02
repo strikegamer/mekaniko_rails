@@ -13,6 +13,7 @@
 
     <script type="text/javascript" src="http://use.typekit.com/flx7kua.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<link rel="favicon" href="images/favicon.ico">
 
     <%= javascript_include_tag 'jquery-1.4.4.min' %>
 		<script type="text/javascript">
@@ -32,18 +33,18 @@
   <body>
     <div class="row">
 		<div class="column grid_6">
-			<h1 class="header_title"><a href="/dashboard" onclick="pageTracker._trackEvent('Navigation', 'Home', 'logo');">mekaniko</a></h1>
+			<h1 class="header_title"><a href="/dashboard" onclick="_gaq.push(['_trackEvent', 'Navigation', 'Home', 'logo']);">mekaniko</a></h1>
 		</div>
 		<div class="column grid_6">
 			<div id="nav">
 				<ul>
-					<li><a href="/dashboard" onclick="pageTracker._trackEvent('Navigation', 'Home', 'navbar');">Home</a></li>					
+					<li><a href="/dashboard" onclick="_gaq.push(['_trackEvent', 'Navigation', 'Home', 'navbar']);">Home</a></li>					
 					<li>|</li>
 					<li><%= link_to("My Profile", current_user ? player_path(current_user.player.id) : "") %></li>
 					<li>|</li>
 					<li><a href="/leaderboard">Leaderboard</a></li>
 					<li>|</li>
-					<li><%= link_to("Logout", "javascript:alert('Luis will implement it later.');", :onclick => "pageTracker._trackEvent('Logout', 'Idiots', 'nav');")%></li>
+					<li><%= link_to("Logout", "javascript:alert('Luis will implement it later.');", :onclick => "_gaq.push(['_trackEvent', 'Idiots', 'Logout', 'navbar']);")%></li>
 				</ul>
 			</div>
 		</div>
